@@ -18,7 +18,7 @@
       transition: all .3s ease-in-out;
       position: relative;
 
-       &:before{
+      &:before{
          content: '';
          position: absolute;
          bottom: -1px;

@@ -12,9 +12,12 @@
 // blocks
 @import "./blocks/header";
 @import "./blocks/footer";
+@import "./blocks/hero";
 // components
 @import "./components/nav";
 @import "./components/header-contacts";
+@import "./components/video-block";
+@import "./components/about-section";
 
 // global styles
 ._container {

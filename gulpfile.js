@@ -2,27 +2,32 @@ let project_folder = require("path").basename(__dirname);
 let source_folder = "#src";
 let fs = require("fs");
 let path = {
-  build: {
-    html: project_folder + "/",
-    css: project_folder + "/css/",
-    js: project_folder + "/js/",
-    img: project_folder + "/img/",
-    fonts: project_folder + "/fonts/",
-  },
-  src: {
-    html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
-    css: source_folder + "/scss/style.scss",
-    js: [source_folder + "/js/app.js", source_folder + "/js/vendors.js"],
-    img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-    fonts: source_folder + "/fonts/*.ttf",
-  },
-  watch: {
-    html: source_folder + "/**/*.html",
-    css: source_folder + "/scss/**/*.scss",
-    js: source_folder + "/js/**/*.js",
-    img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-  },
-  clean: "./" + project_folder + "/",
+   build: {
+      html: project_folder + '/',
+      css: project_folder + '/css/',
+      js: project_folder + '/js/',
+      img: project_folder + '/img/',
+      fonts: project_folder + '/fonts/',
+      resources: project_folder + '/resources/',
+   },
+   src: {
+      html: [source_folder + '/*.html', '!' + source_folder + '/_*.html'],
+      css: source_folder + '/scss/style.scss',
+      js: [source_folder + '/js/app.js', source_folder + '/js/vendors.js'],
+      img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
+      fonts: source_folder + '/fonts/*.ttf',
+      svg: source_folder + '/img/svg/**.svg',
+      resources: source_folder + '/resources/**/*',
+   },
+   watch: {
+      html: source_folder + '/**/*.html',
+      css: source_folder + '/scss/**/*.scss',
+      js: source_folder + '/js/**/*.js',
+      img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
+      svg: source_folder + '/img/svg/**.svg',
+      resources: source_folder + '/resources/**/*',
+   },
+   clean: './' + project_folder + '/',
 };
 let { src, dest } = require('gulp'),
    gulp = require('gulp'),
@@ -43,6 +48,10 @@ let { src, dest } = require('gulp'),
    ttf2woff = require('gulp-ttf2woff'),
    ttf2woff2 = require('gulp-ttf2woff2'),
    fonter = require('gulp-fonter');
+   svgSprite = require('gulp-svg-sprite');
+   svgmin = require('gulp-svgmin');
+   cheerio = require('gulp-cheerio');
+   replace = require('gulp-replace');
 
 function browserSync(params) {
   browsersync.init({
@@ -98,6 +107,46 @@ function js() {
     .pipe(dest(path.build.js))
     .pipe(browsersync.stream());
 }
+
+function resources() {
+  return src(path.src.resources).pipe(dest(path.build.resources)).pipe(browsersync.stream());
+}
+
+function svgSprites() {
+   return src(path.src.svg)
+      .pipe(
+         svgmin({
+            js2svg: {
+               pretty: true,
+            },
+         }),
+      )
+      .pipe(
+         cheerio({
+            run: function ($) {
+               $('[fill]').removeAttr('fill');
+               $('[stroke]').removeAttr('stroke');
+               $('[style]').removeAttr('style');
+            },
+            parserOptions: {
+               xmlMode: true,
+            },
+         }),
+      )
+      .pipe(replace('&gt;', '>'))
+      .pipe(
+         svgSprite({
+            mode: {
+               stack: {
+                  sprite: '../sprite.svg',
+               },
+            },
+         }),
+      )
+      .pipe(dest(path.build.img))
+      .pipe(browsersync.stream());
+};
+
 function images() {
   return src(path.src.img)
     .pipe(
@@ -180,18 +229,23 @@ function watchFiles(params) {
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
   gulp.watch([path.watch.img], images);
+  gulp.watch([path.watch.svg], svgSprites);
+  gulp.watch([path.watch.resources], resources);
 }
 function clean(params) {
   return del(path.clean);
 }
 
 let build = gulp.series(
-  clean,
-  gulp.parallel(js, css, html, images, fonts),
-  fontsStyle
+   clean,
+   gulp.parallel(js, css, html, images, fonts, resources),
+   svgSprites,
+   fontsStyle,
 );
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
+exports.resources = resources;
+exports.svgSprites = svgSprites;
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
 exports.images = images;
