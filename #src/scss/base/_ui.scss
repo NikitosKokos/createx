@@ -109,6 +109,30 @@
 	}
 
 	&--stroke{
+		&-orange{
+			border-color: $orange;
+			color: $orange;
+
+			@media(any-hover: hover){
+				&:hover{
+					background: $orange;
+					color: #fff;
+					border-color: transparent;
+				}
+			}
+
+			&:active{
+				background: $orange;
+				color: #fff;
+				border-color: transparent;
+			}
+
+			&:disabled{
+				opacity: 0.5;
+				pointer-events: none;
+			}
+		}
+
 		&-light{
 			border-color: white;
 

@@ -8,7 +8,7 @@
 // @import "./base/burger";
 @import "./base/ui";
 // libs
-// @import "./libs/";
+@import "./libs/swiper-bundle.min";
 // blocks
 @import "./blocks/header";
 @import "./blocks/footer";
@@ -21,6 +21,9 @@
 @import "./components/mission";
 @import "./components/services-section";
 @import "./components/form-field";
+@import "./components/portfolio-section";
+@import "./components/slider-nav";
+@import "./components/more-info";
 
 // global styles
 ._container {

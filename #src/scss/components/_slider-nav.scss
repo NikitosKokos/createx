@@ -1,0 +1,37 @@
+.slider-nav{
+   display: flex;
+   align-items: center;
+   position: relative;
+   z-index: 10;
+
+   &__btn{
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: $gray;
+      transition: all .3s ease-in-out;
+
+      svg{
+         width: 24px;
+         height: 24px;
+         object-fit: cover;
+         color: inherit;
+         fill: currentColor;
+      }
+
+      @media(any-hover: hover){
+         &:hover{
+            background: $orange;
+            color: #fff;
+         }
+      }
+
+      &:disabled{
+         opacity: .4;
+         pointer-events: none;
+      }
+   }
+}
