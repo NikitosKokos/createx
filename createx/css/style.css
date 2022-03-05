@@ -1835,6 +1835,10 @@ button.swiper-pagination-bullet {
   padding: 0px 0px 12px 0px;
 }
 
+.testimonials__image {
+  margin: 0px 0px -60px 0px;
+}
+
 .testimonials-item__image {
   width: 72px;
   height: 72px;
@@ -1874,6 +1878,103 @@ button.swiper-pagination-bullet {
   line-height: 150%;
   color: #787A80;
   padding: 0px 110px 0px 0px;
+}
+
+.facts {
+  position: relative;
+  overflow: hidden;
+  padding: 180px 0px 0px 0px;
+}
+
+.facts:before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: -195px;
+  width: 570px;
+  height: 1065px;
+  background: url("../img/factsBg.png") center no-repeat;
+}
+
+.facts__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  max-width: 736px;
+  margin: 0 auto;
+}
+
+.facts__title {
+  margin: 0px 0px 62px 0px;
+}
+
+.facts-element__circle {
+  --progress-stroke: #000;
+  --progress-bg-opacity: 0.3;
+  position: relative;
+  margin-bottom: 20px;
+  width: 148px;
+  height: 148px;
+}
+
+.facts-element__circle svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.facts-element__circle .progress {
+  stroke: var(--progress-stroke);
+  -webkit-transform: rotate(-90deg) translateX(20px);
+      -ms-transform: rotate(-90deg) translateX(20px);
+          transform: rotate(-90deg) translateX(20px);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+}
+
+.facts-element__circle .progress-bg {
+  stroke: var(--progress-stroke);
+  opacity: var(--progress-bg-opacity);
+}
+
+.facts-element__circle--one-color {
+  --progress-stroke: #f89828;
+}
+
+.facts-element__circle--two-color {
+  --progress-stroke: #f52f6e;
+}
+
+.facts-element__circle--three-color {
+  --progress-stroke: #5a87fc;
+}
+
+.facts-element__circle--four-color {
+  --progress-stroke: #03cea4;
+}
+
+.facts-element__value {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 150%;
+  color: #1E212C;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.facts-element__text {
+  display: block;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: center;
+  color: #1E212C;
 }
 
 ._container {
@@ -1987,3 +2088,5 @@ body._lock {
 .webp .services-section{ background: url(../img/backgroundServicesSection.webp) center no-repeat; }
 
 .webp .services-item:before{ background: url(../img/servicesImg.webp) 0 0 no-repeat; }
+
+.webp .facts:before{ background: url(../img/factsBg.webp) center no-repeat; }
