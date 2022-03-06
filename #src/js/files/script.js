@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
        },
     });
 
+   //  circles
     const circles = document.querySelectorAll('.facts-element__circle');
     circles.forEach((el) => {
       if (el.dataset.percentage == 'true') {
@@ -32,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
           let full = el.dataset.full;
           let value = el.dataset.value;
           let percentageProgress = Math.floor((value / full) * 100);
-          console.log(percentageProgress);
           valueBlock.textContent = value;
           progress.setAttribute('stroke-dasharray', circleLength);
           progress.setAttribute(
@@ -54,5 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
           );
        }
     });
+
+   //  checkbox with from
+    const formCheckbox = document.querySelector('.contacts-from__checkbox .custom-checkbox__input');
+    const formBtn = document.querySelector('.contacts-from__btn');
+
+    const changeBtnState = (checkbox) => {
+      formBtn.disabled = !checkbox.checked;
+    }
+
+    formCheckbox.addEventListener('change', (e) => changeBtnState(e.currentTarget));
+    changeBtnState(formCheckbox);
 
 }); // end

@@ -1,0 +1,137 @@
+.recent-news{
+   padding: 0px 0px 120px 0px;
+   &__list{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 255px);
+      gap: 30px;
+   }
+
+   &__title{
+      margin: 0px 0px 60px 0px;
+   }
+
+   &__item{
+      grid-column: 5 span;
+      &:first-child{
+         grid-column: 7 span;
+         grid-row: 2 span;
+      }
+   }
+}
+
+.recent-article{
+   background: #FFFFFF;
+   overflow: hidden;
+   width: 100%;
+   height: 100%;
+   box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+   border-radius: 4px;
+
+   &__image{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+   }
+
+   &__text{
+      padding: 24px;
+   }
+
+   &__descr{
+      font-size: 16px;
+      line-height: 160%;
+      color: $gray;
+   }
+
+   &__meta{
+      margin: 0px 0px 16px 0px;
+   }
+
+   &__link{
+      display: block;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 150%;
+      color: $ebony;
+      margin: 0px 0px 12px 0px;
+      transition: all .3s ease-in-out;
+
+      @media(any-hover: hover){
+         &:hover{
+            color: $orange;
+         }
+      }
+   }
+
+   &--small{
+      .recent-article__descr{
+         display: none;
+      }
+      .recent-article__image{
+         height: 156px;
+      }
+      .recent-article__link{
+         margin: 0px 0px 8px 0px;
+      }
+      .recent-article__text{
+         padding-top: 16px;
+      }
+   }
+}
+
+.article-meta{
+   font-size: 14px;
+   line-height: 150%;
+   color: $stormGray;
+   display: flex;
+   align-items: center;
+
+   &__item{
+      color: inherit;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+
+      
+
+      &:not(:last-child){
+        margin: 0px 21px 0px 0px;
+
+         &:after{
+            content: '';
+            position: absolute;
+            right: -13px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 11px;
+            background: $stormGray;
+            border-radius: 20px;
+         }
+      }
+   }
+
+   a{
+      transition: all .3s ease-in-out;
+
+      svg{
+         flex: 0 0 16px;
+         height: 16px;
+         fill: $stormGray;
+         margin: 0px 8px 0px 0px;
+         transition: all .3s ease-in-out;
+      }
+      
+      @media(any-hover: hover){
+         &:hover{
+            color: $orange;
+
+            svg{
+               fill: $orange;
+            }
+         }
+      }
+   }
+}
