@@ -50,6 +50,20 @@
          width: 100%;
       }
    }
+
+   &--footer{
+      .form-field__input{
+         border-top-right-radius: 0;
+         border-bottom-right-radius: 0;
+         background: rgba(255, 255, 255, 0.12);
+         border: 1px solid rgba(255, 255, 255, 0.2);
+         color: #fff;
+
+         &::placeholder{
+            color: rgba(#fff, .6);
+         }
+      }
+   }
 }
 
 .custom-checkbox{

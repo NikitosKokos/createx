@@ -1144,6 +1144,191 @@ button.swiper-pagination-bullet {
   background: #fff;
 }
 
+.footer {
+  padding: 80px 0;
+  background: #1E212C;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+.footer__logo {
+  margin: 0px 60px 0px 0px;
+}
+
+.footer__left {
+  grid-column: 7 span;
+}
+
+.footer__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 0px 22px 0px;
+}
+
+.footer__descr {
+  width: 100%;
+  font-size: 14px;
+  line-height: 150%;
+  max-width: 495px;
+}
+
+.footer__form {
+  grid-column: 5 span;
+}
+
+.footer__address {
+  grid-column: 4 span;
+}
+
+.footer__nav {
+  grid-column: 8 span;
+}
+
+.footer__made {
+  grid-column: 12 span;
+  padding: 30px 0px 0px 0px;
+  font-size: 12px;
+  line-height: 150%;
+  color: #fff;
+}
+
+.footer__made a {
+  color: inherit;
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-form__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  color: #fff;
+  margin: 0px 0px 24px 0px;
+}
+
+.footer-form__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 0px 15px 0px;
+}
+
+.footer-form__descr {
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.footer-form__btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  letter-spacing: normal;
+  padding: 11px 19px;
+}
+
+.footer-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #fff;
+  margin: 0px 0px 13px 0px;
+}
+
+.footer-address {
+  padding: 20px 0px 0px 0px;
+  font-style: normal;
+}
+
+.footer-address__item {
+  display: block;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.footer-address__item:not(:last-child) {
+  margin: 0px 0px 4px 0px;
+}
+
+.footer-address__item a {
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-address__item a:before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  opacity: 0;
+  color: inherit;
+  background: currentColor;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-address__name {
+  color: #FFFFFF;
+}
+
+.footer-nav {
+  padding: 20px 0px 0px 54px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer-nav__col:not(:last-child) {
+  margin: 0px 125px 0px 0px;
+}
+
+.footer-nav__item:not(:last-child) {
+  margin: 0px 0px 4px 0px;
+}
+
+.footer-nav__link {
+  font-size: 16px;
+  line-height: 160%;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-nav__link:before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  opacity: 0;
+  color: inherit;
+  background: currentColor;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 .hero {
   padding: 220px 0px 354px 0px;
   background: #424551;
@@ -1684,6 +1869,34 @@ button.swiper-pagination-bullet {
 
 .form-field--cont .form-field__input {
   width: 100%;
+}
+
+.form-field--footer .form-field__input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.form-field--footer .form-field__input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-field--footer .form-field__input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-field--footer .form-field__input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-field--footer .form-field__input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-field--footer .form-field__input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .custom-checkbox {
@@ -2263,6 +2476,37 @@ button.swiper-pagination-bullet {
   transition: all 0.3s ease-in-out;
 }
 
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social__item:not(:last-child) {
+  margin: 0px 16px 0px 0px;
+}
+
+.social__link {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.social__link svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  fill: rgba(255, 255, 255, 0.6);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
 ._container {
   max-width: 1230px;
   margin: 0 auto;
@@ -2289,6 +2533,20 @@ button.swiper-pagination-bullet {
 
 body._lock {
   overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D7DADD;
+  border-radius: 4px;
+  border: 3px solid #F4F5F7;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F5F7;
 }
 
 @media (max-width: 1242px) {
@@ -2324,6 +2582,28 @@ body._lock {
   .btn--stroke-light:hover {
     background: #787A80;
     border-color: transparent;
+  }
+
+  .footer__made a:hover {
+    color: #FF5A30;
+  }
+
+  .footer-address__item a:hover {
+    color: #fff;
+  }
+
+  .footer-address__item a:hover:before {
+    opacity: 1;
+    width: 100%;
+  }
+
+  .footer-nav__link:hover {
+    color: #fff;
+  }
+
+  .footer-nav__link:hover:before {
+    opacity: 1;
+    width: 100%;
   }
 
   .nav__link:hover {
@@ -2378,6 +2658,10 @@ body._lock {
 
   .article-meta a:hover svg {
     fill: #FF5A30;
+  }
+
+  .social__link:hover svg {
+    fill: white;
   }
 }
 

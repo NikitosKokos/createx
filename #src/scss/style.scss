@@ -29,6 +29,7 @@
 @import "./components/testimonials";
 @import "./components/facts";
 @import "./components/recent-news";
+@import "./components/social";
 
 // global styles
 ._container {
@@ -63,6 +64,19 @@ body{
 		overflow: hidden;
 	}
 }
+
+::-webkit-scrollbar{
+	width: 20px;
+}
+::-webkit-scrollbar-thumb{
+	background: #D7DADD;
+	border-radius: 4px;
+	border: 3px solid #F4F5F7;
+}
+::-webkit-scrollbar-track{
+	background: #F4F5F7;
+}
+
 
 // media
 @import "./base/media";
