@@ -1,0 +1,29 @@
+.page-hero{
+   padding: 153px 0px 179px 0px;
+   background: $athens;
+   background-image: url('../img/servicesBg.png');
+   background-position: right -8px top;
+   background-repeat: no-repeat;
+
+   &__breadcrumbs{
+      margin: 0px 0px 40px 0px;
+   }
+
+   &__title{
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 130%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $ebony;
+      max-width: 600px;
+      margin: 0px 0px 24px 0px;
+   }
+
+   &__descr{
+      font-size: 20px;
+      line-height: 150%;
+      color: $stormGray;
+      max-width: 600px;
+   }
+}

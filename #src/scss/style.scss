@@ -30,6 +30,10 @@
 @import "./components/facts";
 @import "./components/recent-news";
 @import "./components/social";
+// services
+@import "./components/hero-services";
+@import "./components/breadcrumbs";
+@import "./components/services-content";
 
 // global styles
 ._container {
@@ -71,10 +75,10 @@ body{
 ::-webkit-scrollbar-thumb{
 	background: #D7DADD;
 	border-radius: 4px;
-	border: 3px solid #F4F5F7;
+	border: 3px solid $athens;
 }
 ::-webkit-scrollbar-track{
-	background: #F4F5F7;
+	background: $athens;
 }
 
 
