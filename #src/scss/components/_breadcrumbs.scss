@@ -22,8 +22,17 @@
       font-size: 14px;
       line-height: 150%;
       color: $gray;
+      transition: all .3s ease-in-out;
+
       &:not([href]){
          color: #9A9CA5;
+         pointer-events: none;
+      }
+
+      @media(any-hover: hover){
+         &:hover{
+            color: $ebony;
+         }
       }
    }
 }

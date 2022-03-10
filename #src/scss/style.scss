@@ -31,9 +31,11 @@
 @import "./components/recent-news";
 @import "./components/social";
 // services
-@import "./components/hero-services";
+@import "./components/page-hero";
 @import "./components/breadcrumbs";
 @import "./components/services-content";
+@import "./components/we-offer";
+@import "./components/how-we-do";
 
 // global styles
 ._container {

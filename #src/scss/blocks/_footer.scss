@@ -2,11 +2,6 @@
    padding: 80px 0;
    background: $ebony;
    color: rgba(#fff, .6);
-   &__content{
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 30px;
-   }
 
    &__logo{
       margin: 0px 60px 0px 0px;

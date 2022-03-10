@@ -1,5 +1,7 @@
-let spollers = document.querySelectorAll("._spoller");
+let spollers = document.querySelectorAll("[data-spoller]");
 if (spollers.length > 0) {
+   let isReadyToChange = true;
+   
 	function initSpollers(spoller){
 		if (spoller.classList.contains('_spoller-992') && window.innerWidth < 992) {
 			spoller.classList.add('_init');
@@ -9,30 +11,44 @@ if (spollers.length > 0) {
 			spoller.classList.remove('_init');
 		}
 	}
-
+   
 	for (let index = 0; index < spollers.length; index++) {
 		const spoller = spollers[index];
+		
+		if (spoller.hasAttribute('data-active')){
+			spoller.classList.add('_active');
+		}else{
+			_slideUp(spoller.nextElementSibling);
+		}
+      
+      spoller.addEventListener('click', function (e) {
+         if (spoller.hasAttribute('data-992') && window.innerWidth > 992) {
+            return false;
+         }
+         if (spoller.hasAttribute('data-768') && window.innerWidth > 768) {
+            return false;
+         }
+         if (spoller.closest('._spollers')) {
+            let curent_spollers = spoller.closest('._spollers').querySelectorAll('[data-spoller]');
+            for (let i = 0; i < curent_spollers.length; i++) {
+               let el = curent_spollers[i];
+               if (el != spoller) {
+                  el.classList.remove('_active');
+                  _slideUp(el.nextElementSibling);
+               }
+            }
+         }
 
-		spoller.addEventListener("click", function (e) {
-			if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
-				return false;
-			}
-			if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
-				return false;
-			}
-			if (spoller.closest('._spollers').classList.contains('_one')) {
-				let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller');
-				for (let i = 0; i < curent_spollers.length; i++) {
-					let el = curent_spollers[i];
-					if (el != spoller) {
-						el.classList.remove('_active');
-						_slideUp(el.nextElementSibling);
-					}
-				}
-			}
-			spoller.classList.toggle('_active');
-			_slideToggle(spoller.nextElementSibling);
-		});
+         if (isReadyToChange){
+            spoller.classList.toggle('_active');
+            _slideToggle(spoller.nextElementSibling);
+            isReadyToChange = false;
+
+            setTimeout(() => {
+               isReadyToChange = true;
+            }, 500);
+         } 
+      });
 
 		initSpollers(spoller);
 

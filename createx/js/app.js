@@ -3,60 +3,66 @@ function email_test(input) {
 }
 document.addEventListener('DOMContentLoaded', () => {
    // sliders
-    const sliderPortfolio = new Swiper('.portfolio-section__items', {
-       slidesPerView: 3,
-       spaceBetween: 30,
-       speed: 800,
-       // Arrows
-       navigation: {
-          nextEl: '.portfolio-section__next',
-          prevEl: '.portfolio-section__prev',
-       },
-    });
-    const sliderTestimonials = new Swiper('.testimonials__items', {
-       slidesPerView: 1,
-       spaceBetween: 30,
-       loop: true,
-       speed: 800,
-       // Arrows
-       navigation: {
-          nextEl: '.testimonials__next',
-          prevEl: '.testimonials__prev',
-       },
-    });
+   const sliderCont = document.querySelector('.portfolio-section__items');
+   if(sliderCont){
+      const sliderPortfolio = new Swiper(sliderCont, {
+         slidesPerView: 3,
+         spaceBetween: 30,
+         speed: 800,
+         // Arrows
+         navigation: {
+            nextEl: '.portfolio-section__next',
+            prevEl: '.portfolio-section__prev',
+         },
+      });
+      const sliderTestimonials = new Swiper('.testimonials__items', {
+         slidesPerView: 1,
+         spaceBetween: 30,
+         loop: true,
+         speed: 800,
+         // Arrows
+         navigation: {
+            nextEl: '.testimonials__next',
+            prevEl: '.testimonials__prev',
+         },
+      });      
+   }
+
 
    //  circles
     const circles = document.querySelectorAll('.facts-element__circle');
-    circles.forEach((el) => {
-      if (el.dataset.percentage == 'true') {
-          let progress = el.querySelector('.progress');
-          let valueBlock = el.querySelector('.facts-element__value');
-          let radius = progress.getAttribute('r');
-          let circleLength = 2 * Math.PI * radius;
-          let full = el.dataset.full;
-          let value = el.dataset.value;
-          let percentageProgress = Math.floor((value / full) * 100);
-          valueBlock.textContent = value;
-          progress.setAttribute('stroke-dasharray', circleLength);
-          progress.setAttribute(
-             'stroke-dashoffset',
-             circleLength - (circleLength * percentageProgress) / 100,
-          );
-       } else {
-          let progress = el.querySelector('.progress');
-          let valueBlock = el.querySelector('.facts-element__value');
-          let radius = progress.getAttribute('r');
-          let circleLength = 2 * Math.PI * radius;
-          let percent = el.dataset.percent;
-          let percentageProgress = Math.floor(percent);
-          valueBlock.textContent = percent + '%';
-          progress.setAttribute('stroke-dasharray', circleLength);
-          progress.setAttribute(
-             'stroke-dashoffset',
-             circleLength - (circleLength * percentageProgress) / 100,
-          );
-       }
-    });
+    if (circles){
+      circles.forEach((el) => {
+         if (el.dataset.percentage == 'true') {
+            let progress = el.querySelector('.progress');
+            let valueBlock = el.querySelector('.facts-element__value');
+            let radius = progress.getAttribute('r');
+            let circleLength = 2 * Math.PI * radius;
+            let full = el.dataset.full;
+            let value = el.dataset.value;
+            let percentageProgress = Math.floor((value / full) * 100);
+            valueBlock.textContent = value;
+            progress.setAttribute('stroke-dasharray', circleLength);
+            progress.setAttribute(
+               'stroke-dashoffset',
+               circleLength - (circleLength * percentageProgress) / 100,
+            );
+         } else {
+            let progress = el.querySelector('.progress');
+            let valueBlock = el.querySelector('.facts-element__value');
+            let radius = progress.getAttribute('r');
+            let circleLength = 2 * Math.PI * radius;
+            let percent = el.dataset.percent;
+            let percentageProgress = Math.floor(percent);
+            valueBlock.textContent = percent + '%';
+            progress.setAttribute('stroke-dasharray', circleLength);
+            progress.setAttribute(
+               'stroke-dashoffset',
+               circleLength - (circleLength * percentageProgress) / 100,
+            );
+         }
+      });       
+    }
 
    //  checkbox with from
     const formCheckbox = document.querySelector('.contacts-from__checkbox .custom-checkbox__input');
@@ -898,7 +904,63 @@ function gallery_init() {
 }
 //=================;
 // @ @include('files/burger.js', {});
-// @ @include("files/spoller.js",{});
+let spollers = document.querySelectorAll("[data-spoller]");
+if (spollers.length > 0) {
+   let isReadyToChange = true;
+   
+	function initSpollers(spoller){
+		if (spoller.classList.contains('_spoller-992') && window.innerWidth < 992) {
+			spoller.classList.add('_init');
+		}else if (spoller.classList.contains('_spoller-768') && window.innerWidth < 768) {
+			spoller.classList.add('_init');
+		}else{
+			spoller.classList.remove('_init');
+		}
+	}
+   
+	for (let index = 0; index < spollers.length; index++) {
+		const spoller = spollers[index];
+		
+		if (spoller.hasAttribute('data-active')){
+			spoller.classList.add('_active');
+		}else{
+			_slideUp(spoller.nextElementSibling);
+		}
+      
+      spoller.addEventListener('click', function (e) {
+         if (spoller.hasAttribute('data-992') && window.innerWidth > 992) {
+            return false;
+         }
+         if (spoller.hasAttribute('data-768') && window.innerWidth > 768) {
+            return false;
+         }
+         if (spoller.closest('._spollers')) {
+            let curent_spollers = spoller.closest('._spollers').querySelectorAll('[data-spoller]');
+            for (let i = 0; i < curent_spollers.length; i++) {
+               let el = curent_spollers[i];
+               if (el != spoller) {
+                  el.classList.remove('_active');
+                  _slideUp(el.nextElementSibling);
+               }
+            }
+         }
+
+         if (isReadyToChange){
+            spoller.classList.toggle('_active');
+            _slideToggle(spoller.nextElementSibling);
+            isReadyToChange = false;
+
+            setTimeout(() => {
+               isReadyToChange = true;
+            }, 500);
+         } 
+      });
+
+		initSpollers(spoller);
+
+		window.addEventListener('resize',() =>  initSpollers(spoller));
+	}
+};
 // @ @include("files/select.js",{});
 // @ @include("files/tabs.js",{});
 //BildSlider

@@ -1,10 +1,7 @@
 .recent-news{
    padding: 0px 0px 120px 0px;
    &__list{
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
       grid-template-rows: repeat(2, 255px);
-      gap: 30px;
    }
 
    &__title{
