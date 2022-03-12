@@ -27,6 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
          },
       });      
    }
+   const relatedSlider = document.querySelector('.related-projects__items');
+   if(relatedSlider){
+      const sliderRelated = new Swiper(relatedSlider, {
+         slidesPerView: 3,
+         spaceBetween: 30,
+         speed: 800,
+         // Arrows
+         navigation: {
+            nextEl: '.related-projects__next',
+            prevEl: '.related-projects__prev',
+         },
+      });
+   }
 
 
    //  circles
@@ -928,24 +941,24 @@ if (spollers.length > 0) {
 		}
       
       spoller.addEventListener('click', function (e) {
-         if (spoller.hasAttribute('data-992') && window.innerWidth > 992) {
-            return false;
-         }
-         if (spoller.hasAttribute('data-768') && window.innerWidth > 768) {
-            return false;
-         }
-         if (spoller.closest('._spollers')) {
-            let curent_spollers = spoller.closest('._spollers').querySelectorAll('[data-spoller]');
-            for (let i = 0; i < curent_spollers.length; i++) {
-               let el = curent_spollers[i];
-               if (el != spoller) {
-                  el.classList.remove('_active');
-                  _slideUp(el.nextElementSibling);
-               }
-            }
-         }
-
          if (isReadyToChange){
+            if (spoller.hasAttribute('data-992') && window.innerWidth > 992) {
+               return false;
+            }
+            if (spoller.hasAttribute('data-768') && window.innerWidth > 768) {
+               return false;
+            }
+            if (spoller.closest('._spollers')) {
+               let curent_spollers = spoller.closest('._spollers').querySelectorAll('[data-spoller]');
+               for (let i = 0; i < curent_spollers.length; i++) {
+                  let el = curent_spollers[i];
+                  if (el != spoller) {
+                     el.classList.remove('_active');
+                     _slideUp(el.nextElementSibling);
+                  }
+               }
+            } 
+
             spoller.classList.toggle('_active');
             _slideToggle(spoller.nextElementSibling);
             isReadyToChange = false;
@@ -953,7 +966,7 @@ if (spollers.length > 0) {
             setTimeout(() => {
                isReadyToChange = true;
             }, 500);
-         } 
+         }
       });
 
 		initSpollers(spoller);

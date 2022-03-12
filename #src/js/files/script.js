@@ -24,6 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
          },
       });      
    }
+   const relatedSlider = document.querySelector('.related-projects__items');
+   if(relatedSlider){
+      const sliderRelated = new Swiper(relatedSlider, {
+         slidesPerView: 3,
+         spaceBetween: 30,
+         speed: 800,
+         // Arrows
+         navigation: {
+            nextEl: '.related-projects__next',
+            prevEl: '.related-projects__prev',
+         },
+      });
+   }
 
 
    //  circles
