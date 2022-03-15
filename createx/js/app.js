@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: '.portfolio-section__prev',
          },
       });
+   }
+   const sliderContTest = document.querySelector('.testimonials__items');
+   if(sliderContTest){
       const sliderTestimonials = new Swiper('.testimonials__items', {
          slidesPerView: 1,
          spaceBetween: 30,
@@ -87,6 +90,114 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formCheckbox.addEventListener('change', (e) => changeBtnState(e.currentTarget));
     changeBtnState(formCheckbox);
+
+   //  tabs
+   const portfolioTabsNav = document.querySelector('.portfolio-tabs-nav');
+   const portfolioTabsNavBts = document.querySelectorAll('.portfolio-tabs-nav__btn');
+   const portfolioTabsItems = document.querySelectorAll('.portfolio-tabs__item');
+   const loadMore = document.querySelector('.portfolio-more');
+   const itemsCount = 9;
+   let page = 1;
+
+   const isLoadMoreNeeded = (selector, page = 1) => {
+      if (selector.length <= itemsCount * page) {
+         loadMore.style.display = 'none';
+      } else {
+         loadMore.style.display = 'flex';
+      }
+   }
+
+   portfolioTabsNav.addEventListener('click', (e) => {
+      const target = e.target;
+      if(target.classList.contains('portfolio-tabs-nav__btn')){
+         const path = target.dataset.path;
+
+         page = 1;
+         
+         portfolioTabsItems.forEach((el) => {
+            el.classList.remove('_visible');
+         });
+
+         if(path === 'all'){
+            [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
+               el.classList.add('_visible');
+            });
+            portfolioTabsNavBts.forEach((el) => {
+               el.classList.remove('_active');
+            });
+            target.classList.add('_active');
+            isLoadMoreNeeded(document.querySelectorAll('.portfolio-tabs__item'));
+            return;
+         }
+         
+         let currentItems = document.querySelectorAll(`[data-target='${path}']`);
+         if (document.querySelectorAll(`[data-target='${path}']`).length > itemsCount) {
+            currentItems = [...currentItems].slice(0, itemsCount);
+         }
+         currentItems.forEach((el) => {
+            el.closest('.portfolio-tabs__item').classList.add('_visible');
+         });
+
+         portfolioTabsNavBts.forEach((el) => {
+            el.classList.remove('_active');
+         });
+         target.classList.add('_active');
+
+         isLoadMoreNeeded(document.querySelectorAll(`[data-target='${path}']`));
+       }
+   });
+
+   if(portfolioTabsItems.length > itemsCount){
+      [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
+         el.classList.add('_visible');
+      });
+   }
+   
+   isLoadMoreNeeded(portfolioTabsItems);
+
+   loadMore.addEventListener('click', (e) => {
+      const path = document.querySelector('.portfolio-tabs-nav__btn._active').dataset.path;
+
+      if(path === 'all'){
+         const hiddenItems = [...portfolioTabsItems].slice(itemsCount * page);
+         
+         if (hiddenItems.length > itemsCount) {
+            const currentItems = [...portfolioTabsItems].slice(
+               itemsCount * page,
+               itemsCount * (page + 1),
+            );
+
+            currentItems.forEach((el) => {
+               el.classList.add('_visible');
+            });
+         } else {
+            hiddenItems.forEach((el) => {
+               el.classList.add('_visible');
+            });
+         }
+         page++;
+         isLoadMoreNeeded(portfolioTabsItems, page);
+      }else{
+         const hiddenItems = [...document.querySelectorAll(`[data-target='${path}']`)]
+         .slice(itemsCount * page);
+
+         if (hiddenItems.length > itemsCount){
+            const currentItems = [...document.querySelectorAll(`[data-target='${path}']`)].slice(
+               itemsCount * page,
+               itemsCount * (page + 1),
+            );
+            currentItems.forEach((el) => {
+               el.closest('.portfolio-tabs__item').classList.add('_visible');
+            });
+         }else{
+            hiddenItems.forEach((el) => {
+               el.closest('.portfolio-tabs__item').classList.add('_visible');
+            });
+         }
+         page++;
+         isLoadMoreNeeded(document.querySelectorAll(`[data-target='${path}']`), page);
+      }
+    });
 
 }); // end
 let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
@@ -948,8 +1059,8 @@ if (spollers.length > 0) {
             if (spoller.hasAttribute('data-768') && window.innerWidth > 768) {
                return false;
             }
-            if (spoller.closest('._spollers')) {
-               let curent_spollers = spoller.closest('._spollers').querySelectorAll('[data-spoller]');
+            if (spoller.closest('[data-spollers]')) {
+               let curent_spollers = spoller.closest('[data-spollers]').querySelectorAll('[data-spoller]');
                for (let i = 0; i < curent_spollers.length; i++) {
                   let el = curent_spollers[i];
                   if (el != spoller) {

@@ -41,5 +41,9 @@
             }
          }
       }
+
+      &--current{
+         color: $orange;
+      }
    }
 }

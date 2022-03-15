@@ -1,0 +1,116 @@
+.portfolio{
+   position: relative;
+   padding: 0px 0px 100px 0px;
+
+   &__load{
+      display: flex;
+      justify-content: center;
+   }
+}
+
+.portfolio-tabs-nav{
+   display: flex;
+   align-items: center;
+   transform: translateY(-60px);
+   margin: 0px 0px 61px 0px;
+
+   &__item{
+      width: calc((100% - (20px * 4)) / 5);
+
+      &:not(:last-child){
+         margin: 0px 20px 0px 0px;
+      }
+   }
+
+   &__icon{
+      width: 48px;
+      height: 48px;
+      display: block;
+      object-fit: cover;
+      color: inherit;
+      fill: currentColor;
+      margin: 0px 0px 16px 0px;
+      pointer-events: none;
+   }
+
+   &__text{
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 160%;
+      text-align: center;
+      color: #9A9CA5;
+      transition: all .3s ease-in-out;
+      pointer-events: none;
+   }
+
+   &__btn{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 154px;
+      padding: 15px;
+      background: #FFFFFF;
+      box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+      border-radius: 4px;
+      color: $orange;
+      transition: all .3s ease-in-out;
+
+      @media(any-hover: hover){
+         &:hover{
+            .portfolio-tabs-nav__text{
+               color: $orange;
+            }
+         }
+      }
+
+      &._active{
+         color: #fff;
+         background: $orange;
+         box-shadow: 0px 60px 80px -20px rgba(255, 90, 48, 0.16), 0px 26px 24px -10px rgba(255, 90, 48, 0.1), 0px 12px 10px -6px rgba(255, 90, 48, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+         pointer-events: none;
+
+         .portfolio-tabs-nav__text{
+            color: #fff;
+         }
+      }
+   }
+}
+
+.portfolio-tabs{
+   &__item{
+      display: none;
+      grid-column: 4 span;
+
+      &._visible{
+         display: block;
+      }
+   }
+}
+
+.portfolio-more{
+   display: flex;
+   align-items: center;
+   font-weight: 700;
+   font-size: 16px;
+   line-height: 160%;
+   color: $gray;
+   margin: 60px 0px 0px 0px;
+   transition: all .3s ease-in-out;
+
+   svg{
+      color: inherit;
+      fill: currentColor;
+      margin: 0px 16px 0px 0px;
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+   }
+
+   @media(any-hover: hover){
+      &:hover{
+         color: $ebony;
+      }
+   }
+}

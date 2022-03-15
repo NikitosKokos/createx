@@ -1466,6 +1466,10 @@ button.swiper-pagination-bullet {
   transition: all 0.3s ease-in-out;
 }
 
+.nav__link--current {
+  color: #FF5A30;
+}
+
 .header-contacts {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2547,6 +2551,10 @@ button.swiper-pagination-bullet {
   background-image: url("../img/serviceBg.png");
 }
 
+.page-hero--work {
+  background-image: url("../img/workBg.png");
+}
+
 .breadcrumbs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3048,6 +3056,154 @@ button.swiper-pagination-bullet {
   background: url("../img/icons/table-check.svg") center/cover no-repeat;
 }
 
+.portfolio {
+  position: relative;
+  padding: 0px 0px 100px 0px;
+}
+
+.portfolio__load {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.portfolio-tabs-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateY(-60px);
+      -ms-transform: translateY(-60px);
+          transform: translateY(-60px);
+  margin: 0px 0px 61px 0px;
+}
+
+.portfolio-tabs-nav__item {
+  width: calc((100% - 80px) / 5);
+}
+
+.portfolio-tabs-nav__item:not(:last-child) {
+  margin: 0px 20px 0px 0px;
+}
+
+.portfolio-tabs-nav__icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  color: inherit;
+  fill: currentColor;
+  margin: 0px 0px 16px 0px;
+  pointer-events: none;
+}
+
+.portfolio-tabs-nav__text {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  text-align: center;
+  color: #9A9CA5;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.portfolio-tabs-nav__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  min-height: 154px;
+  padding: 15px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+          box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+  border-radius: 4px;
+  color: #FF5A30;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio-tabs-nav__btn._active {
+  color: #fff;
+  background: #FF5A30;
+  -webkit-box-shadow: 0px 60px 80px -20px rgba(255, 90, 48, 0.16), 0px 26px 24px -10px rgba(255, 90, 48, 0.1), 0px 12px 10px -6px rgba(255, 90, 48, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+          box-shadow: 0px 60px 80px -20px rgba(255, 90, 48, 0.16), 0px 26px 24px -10px rgba(255, 90, 48, 0.1), 0px 12px 10px -6px rgba(255, 90, 48, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+  pointer-events: none;
+}
+
+.portfolio-tabs-nav__btn._active .portfolio-tabs-nav__text {
+  color: #fff;
+}
+
+.portfolio-tabs__item {
+  display: none;
+  grid-column: 4 span;
+}
+
+.portfolio-tabs__item._visible {
+  display: block;
+}
+
+.portfolio-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  color: #424551;
+  margin: 60px 0px 0px 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio-more svg {
+  color: inherit;
+  fill: currentColor;
+  margin: 0px 16px 0px 0px;
+  width: 24px;
+  height: 24px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.clients {
+  padding: 160px 0px 120px 0px;
+}
+
+.clients__title {
+  margin: 0px 0px 60px 0px;
+}
+
+.clients__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 102px;
+}
+
 ._container {
   max-width: 1230px;
   margin: 0 auto;
@@ -3208,6 +3364,14 @@ body._lock {
   .breadcrumbs__link:hover {
     color: #1E212C;
   }
+
+  .portfolio-tabs-nav__btn:hover .portfolio-tabs-nav__text {
+    color: #FF5A30;
+  }
+
+  .portfolio-more:hover {
+    color: #1E212C;
+  }
 }
 
 .webp .hero{ background: url(../img/heroBg.webp) center no-repeat; }
@@ -3223,3 +3387,5 @@ body._lock {
 .webp .page-hero--services{ background-image: url(../img/servicesBg.webp); }
 
 .webp .page-hero--service{ background-image: url(../img/serviceBg.webp); }
+
+.webp .page-hero--work{ background-image: url(../img/workBg.webp); }

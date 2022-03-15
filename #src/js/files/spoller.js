@@ -29,8 +29,8 @@ if (spollers.length > 0) {
             if (spoller.hasAttribute('data-768') && window.innerWidth > 768) {
                return false;
             }
-            if (spoller.closest('._spollers')) {
-               let curent_spollers = spoller.closest('._spollers').querySelectorAll('[data-spoller]');
+            if (spoller.closest('[data-spollers]')) {
+               let curent_spollers = spoller.closest('[data-spollers]').querySelectorAll('[data-spoller]');
                for (let i = 0; i < curent_spollers.length; i++) {
                   let el = curent_spollers[i];
                   if (el != spoller) {

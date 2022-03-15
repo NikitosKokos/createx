@@ -1,0 +1,13 @@
+.clients{
+   padding: 160px 0px 120px 0px;
+
+   &__title{
+      margin: 0px 0px 60px 0px;
+   }
+
+   &__list{
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 102px;
+   }
+}
