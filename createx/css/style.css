@@ -2536,6 +2536,12 @@ button.swiper-pagination-bullet {
   margin: 0px 0px 24px 0px;
 }
 
+.page-hero__title--small {
+  text-transform: initial;
+  font-size: 64px;
+  line-height: 120%;
+}
+
 .page-hero__descr {
   font-size: 20px;
   line-height: 150%;
@@ -2553,6 +2559,12 @@ button.swiper-pagination-bullet {
 
 .page-hero--work {
   background-image: url("../img/workBg.png");
+}
+
+.page-hero--project {
+  background-image: url("../img/projectBg.png");
+  background-position: right -8px top 48px;
+  background-color: #fff;
 }
 
 .breadcrumbs {
@@ -3204,6 +3216,174 @@ button.swiper-pagination-bullet {
   gap: 102px;
 }
 
+.project-slider {
+  position: relative;
+  margin: 0px 0px 20px 0px;
+}
+
+.project-slider__item {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-slider__btn {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.project-slider__prev {
+  left: 32px;
+}
+
+.project-slider__next {
+  right: 32px;
+}
+
+.project-slider-wrapper {
+  margin: 60px 0px 0px 0px;
+  overflow: hidden;
+}
+
+.project-slider-nav__item {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0.6;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-slider-nav__item.swiper-slide-thumb-active {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.project-slider-nav__item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.project-goal {
+  padding: 30px 0px 120px 0px;
+}
+
+.project-goal__left {
+  grid-column: 6 span;
+  padding: 24px 0px 0px 0px;
+}
+
+.project-goal__right {
+  grid-column: 6 span;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.project-goal__title {
+  margin: 0px 0px 41px 0px;
+}
+
+.project-goal__descr {
+  font-size: 18px;
+  line-height: 150%;
+  color: #424551;
+}
+
+.project-goal__descr:not(:last-child) {
+  margin: 0px 0px 27px 0px;
+}
+
+.project-info {
+  width: 495px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+          box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+  border-radius: 4px;
+  padding: 40px 60px;
+}
+
+.project-info__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.project-info__item:not(:last-child) {
+  margin: 0px 0px 17px 0px;
+}
+
+.project-info__category {
+  width: 130px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  color: #1E212C;
+  text-transform: uppercase;
+}
+
+.project-info__value {
+  font-size: 16px;
+  line-height: 160%;
+  color: #787A80;
+}
+
+.decisions {
+  padding: 80px 0px 80px 0px;
+  background: #f4f5f7;
+}
+
+.decisions__left {
+  grid-column: 5 span;
+}
+
+.decisions__left img {
+  margin: 0px 0px -142px 0px;
+}
+
+.decisions__right {
+  grid-column: 7 span;
+  padding: 0px 0px 0px 104px;
+}
+
+.decisions__item {
+  position: relative;
+  font-size: 16px;
+  line-height: 160%;
+  color: #424551;
+  padding: 0px 0px 0px 37px;
+}
+
+.decisions__item:not(:last-child) {
+  margin: 0px 0px 20px 0px;
+}
+
+.decisions__item:before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url("../img/decisions-check.svg") center/cover no-repeat;
+}
+
 ._container {
   max-width: 1230px;
   margin: 0 auto;
@@ -3372,6 +3552,11 @@ body._lock {
   .portfolio-more:hover {
     color: #1E212C;
   }
+
+  .project-slider__btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: #1E212C;
+  }
 }
 
 .webp .hero{ background: url(../img/heroBg.webp) center no-repeat; }
@@ -3389,3 +3574,5 @@ body._lock {
 .webp .page-hero--service{ background-image: url(../img/serviceBg.webp); }
 
 .webp .page-hero--work{ background-image: url(../img/workBg.webp); }
+
+.webp .page-hero--project{ background-image: url(../img/projectBg.webp); }

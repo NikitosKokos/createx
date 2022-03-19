@@ -44,6 +44,30 @@ document.addEventListener('DOMContentLoaded', () => {
       });
    }
 
+   const projectSlider = document.querySelector('.project-slider-swiper');
+   if(projectSlider){
+      const sliderProjectNav = new Swiper('.project-slider-nav', {
+         slidesPerView: 10,
+         spaceBetween: 20,
+         speed: 800,
+         freeMode: true,
+         watchSlidesProgress: true,
+      });
+      const sliderProject = new Swiper(projectSlider, {
+         slidesPerView: 1,
+         spaceBetween: 20,
+         speed: 800,
+         thumbs: {
+            swiper: sliderProjectNav,
+         },
+         // Arrows
+         navigation: {
+            nextEl: '.project-slider__next',
+            prevEl: '.project-slider__prev',
+         },
+      });
+   }
+
 
    //  circles
     const circles = document.querySelectorAll('.facts-element__circle');
@@ -99,105 +123,107 @@ document.addEventListener('DOMContentLoaded', () => {
    const itemsCount = 9;
    let page = 1;
 
-   const isLoadMoreNeeded = (selector, page = 1) => {
-      if (selector.length <= itemsCount * page) {
-         loadMore.style.display = 'none';
-      } else {
-         loadMore.style.display = 'flex';
+   if(portfolioTabsNav){
+      const isLoadMoreNeeded = (selector, page = 1) => {
+         if (selector.length <= itemsCount * page) {
+            loadMore.style.display = 'none';
+         } else {
+            loadMore.style.display = 'flex';
+         }
       }
-   }
 
-   portfolioTabsNav.addEventListener('click', (e) => {
-      const target = e.target;
-      if(target.classList.contains('portfolio-tabs-nav__btn')){
-         const path = target.dataset.path;
+      portfolioTabsNav.addEventListener('click', (e) => {
+         const target = e.target;
+         if(target.classList.contains('portfolio-tabs-nav__btn')){
+            const path = target.dataset.path;
 
-         page = 1;
-         
-         portfolioTabsItems.forEach((el) => {
-            el.classList.remove('_visible');
-         });
-
-         if(path === 'all'){
-            [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
-               el.classList.add('_visible');
+            page = 1;
+            
+            portfolioTabsItems.forEach((el) => {
+               el.classList.remove('_visible');
             });
+
+            if(path === 'all'){
+               [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
+                  el.classList.add('_visible');
+               });
+               portfolioTabsNavBts.forEach((el) => {
+                  el.classList.remove('_active');
+               });
+               target.classList.add('_active');
+               isLoadMoreNeeded(document.querySelectorAll('.portfolio-tabs__item'));
+               return;
+            }
+            
+            let currentItems = document.querySelectorAll(`[data-target='${path}']`);
+            if (document.querySelectorAll(`[data-target='${path}']`).length > itemsCount) {
+               currentItems = [...currentItems].slice(0, itemsCount);
+            }
+            currentItems.forEach((el) => {
+               el.closest('.portfolio-tabs__item').classList.add('_visible');
+            });
+
             portfolioTabsNavBts.forEach((el) => {
                el.classList.remove('_active');
             });
             target.classList.add('_active');
-            isLoadMoreNeeded(document.querySelectorAll('.portfolio-tabs__item'));
-            return;
+
+            isLoadMoreNeeded(document.querySelectorAll(`[data-target='${path}']`));
          }
-         
-         let currentItems = document.querySelectorAll(`[data-target='${path}']`);
-         if (document.querySelectorAll(`[data-target='${path}']`).length > itemsCount) {
-            currentItems = [...currentItems].slice(0, itemsCount);
+      });
+
+      if(portfolioTabsItems.length > itemsCount){
+         [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
+            el.classList.add('_visible');
+         });
+      }
+      
+      isLoadMoreNeeded(portfolioTabsItems);
+
+      loadMore.addEventListener('click', (e) => {
+         const path = document.querySelector('.portfolio-tabs-nav__btn._active').dataset.path;
+
+         if(path === 'all'){
+            const hiddenItems = [...portfolioTabsItems].slice(itemsCount * page);
+            
+            if (hiddenItems.length > itemsCount) {
+               const currentItems = [...portfolioTabsItems].slice(
+                  itemsCount * page,
+                  itemsCount * (page + 1),
+               );
+
+               currentItems.forEach((el) => {
+                  el.classList.add('_visible');
+               });
+            } else {
+               hiddenItems.forEach((el) => {
+                  el.classList.add('_visible');
+               });
+            }
+            page++;
+            isLoadMoreNeeded(portfolioTabsItems, page);
+         }else{
+            const hiddenItems = [...document.querySelectorAll(`[data-target='${path}']`)]
+            .slice(itemsCount * page);
+
+            if (hiddenItems.length > itemsCount){
+               const currentItems = [...document.querySelectorAll(`[data-target='${path}']`)].slice(
+                  itemsCount * page,
+                  itemsCount * (page + 1),
+               );
+               currentItems.forEach((el) => {
+                  el.closest('.portfolio-tabs__item').classList.add('_visible');
+               });
+            }else{
+               hiddenItems.forEach((el) => {
+                  el.closest('.portfolio-tabs__item').classList.add('_visible');
+               });
+            }
+            page++;
+            isLoadMoreNeeded(document.querySelectorAll(`[data-target='${path}']`), page);
          }
-         currentItems.forEach((el) => {
-            el.closest('.portfolio-tabs__item').classList.add('_visible');
-         });
-
-         portfolioTabsNavBts.forEach((el) => {
-            el.classList.remove('_active');
-         });
-         target.classList.add('_active');
-
-         isLoadMoreNeeded(document.querySelectorAll(`[data-target='${path}']`));
-       }
-   });
-
-   if(portfolioTabsItems.length > itemsCount){
-      [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
-         el.classList.add('_visible');
       });
    }
-   
-   isLoadMoreNeeded(portfolioTabsItems);
-
-   loadMore.addEventListener('click', (e) => {
-      const path = document.querySelector('.portfolio-tabs-nav__btn._active').dataset.path;
-
-      if(path === 'all'){
-         const hiddenItems = [...portfolioTabsItems].slice(itemsCount * page);
-         
-         if (hiddenItems.length > itemsCount) {
-            const currentItems = [...portfolioTabsItems].slice(
-               itemsCount * page,
-               itemsCount * (page + 1),
-            );
-
-            currentItems.forEach((el) => {
-               el.classList.add('_visible');
-            });
-         } else {
-            hiddenItems.forEach((el) => {
-               el.classList.add('_visible');
-            });
-         }
-         page++;
-         isLoadMoreNeeded(portfolioTabsItems, page);
-      }else{
-         const hiddenItems = [...document.querySelectorAll(`[data-target='${path}']`)]
-         .slice(itemsCount * page);
-
-         if (hiddenItems.length > itemsCount){
-            const currentItems = [...document.querySelectorAll(`[data-target='${path}']`)].slice(
-               itemsCount * page,
-               itemsCount * (page + 1),
-            );
-            currentItems.forEach((el) => {
-               el.closest('.portfolio-tabs__item').classList.add('_visible');
-            });
-         }else{
-            hiddenItems.forEach((el) => {
-               el.closest('.portfolio-tabs__item').classList.add('_visible');
-            });
-         }
-         page++;
-         isLoadMoreNeeded(document.querySelectorAll(`[data-target='${path}']`), page);
-      }
-    });
 
 }); // end
 let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');

@@ -18,6 +18,12 @@
       color: $ebony;
       max-width: 600px;
       margin: 0px 0px 24px 0px;
+
+      &--small{
+         text-transform: initial;
+         font-size: 64px;
+         line-height: 120%;
+      }
    }
 
    &__descr{
@@ -37,5 +43,11 @@
 
    &--work{
       background-image: url('../img/workBg.png');
+   }
+
+   &--project{
+      background-image: url('../img/projectBg.png');
+      background-position: right -8px top 48px;
+      background-color: #fff;
    }
 }
