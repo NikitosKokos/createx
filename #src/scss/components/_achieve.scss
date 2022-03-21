@@ -1,0 +1,114 @@
+.achieve{
+   padding: 120px 0px 120px 0px;
+   background: url('../img/achieve/achieveBg.png') right bottom -350px no-repeat;
+
+   &__item{
+      grid-column: 3 span;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-position: top center;
+      background-size: 48px 48px;
+      background-repeat: no-repeat;
+      padding: 70px 0px 0px 0px;
+
+      &--reccom{
+         background-image: url("../img/achieve/reccom.svg");
+      }
+
+      &--renov{
+         background-image: url("../img/achieve/renov.svg");
+      }
+
+      &--spec{
+         background-image: url("../img/achieve/spec.svg");
+      }
+
+      &--finish{
+         background-image: url("../img/achieve/finish.svg");
+      }
+   }
+
+   &__value{
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 130%;
+      color: $orange;
+      margin: 0px 0px 10px 0px;
+   }
+
+   &__text{
+      text-align: center;
+      font-size: 14px;
+      line-height: 150%;
+      color: $ebony;
+   }
+
+   &__list{
+      margin: 0px 0px 260px 0px;
+   }
+
+   &__content{
+      display: flex;
+      align-items: flex-start;
+   }
+
+   &__info{
+      background: #FFFFFF;
+      box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+      border-radius: 4px;
+      width: 735px;
+      flex-shrink: 0;
+      position: relative;
+      top: -130px;
+      left: -30px;
+      padding: 80px 40px 60px 80px;
+      z-index: 5;
+   }
+}
+
+.quote{
+   &__content{
+      padding: 9px 53px;
+      position: relative;
+      margin: 0px 0px 32px 0px;
+
+      &:before{
+         content: '';
+         position: absolute;
+         top: 8px;
+         left: -5px;
+         width: 20px;
+         height: 20px;
+         background: url('../img/achieve/braces.svg') center / cover no-repeat;
+      }
+
+      p{
+         font-weight: 700;
+         font-size: 20px;
+         line-height: 150%;
+         color: $ebony;
+
+         &:not(:last-child){
+           margin: 0px 0px 30px 0px;
+         }
+      }
+   }
+
+   &__footer{
+      font-size: 14px;
+      line-height: 150%;
+      color: $stormGray;
+      padding: 20px 53px;
+      background: url('../img/achieve/signature.svg') right 65px center / 100px 68px no-repeat;
+   }
+
+   &__author{
+      display: block;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 160%;
+      color: $ebony;
+      margin: 0px 0px 2px 0px;
+   }
+}

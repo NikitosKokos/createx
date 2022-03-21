@@ -2567,6 +2567,10 @@ button.swiper-pagination-bullet {
   background-color: #fff;
 }
 
+.page-hero--about {
+  background-image: url("../img/aboutBg.png");
+}
+
 .breadcrumbs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3384,6 +3388,189 @@ button.swiper-pagination-bullet {
   background: url("../img/decisions-check.svg") center/cover no-repeat;
 }
 
+.achieve {
+  padding: 120px 0px 120px 0px;
+  background: url("../img/achieve/achieveBg.png") right bottom -350px no-repeat;
+}
+
+.achieve__item {
+  grid-column: 3 span;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-position: top center;
+  background-size: 48px 48px;
+  background-repeat: no-repeat;
+  padding: 70px 0px 0px 0px;
+}
+
+.achieve__item--reccom {
+  background-image: url("../img/achieve/reccom.svg");
+}
+
+.achieve__item--renov {
+  background-image: url("../img/achieve/renov.svg");
+}
+
+.achieve__item--spec {
+  background-image: url("../img/achieve/spec.svg");
+}
+
+.achieve__item--finish {
+  background-image: url("../img/achieve/finish.svg");
+}
+
+.achieve__value {
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 130%;
+  color: #FF5A30;
+  margin: 0px 0px 10px 0px;
+}
+
+.achieve__text {
+  text-align: center;
+  font-size: 14px;
+  line-height: 150%;
+  color: #1E212C;
+}
+
+.achieve__list {
+  margin: 0px 0px 260px 0px;
+}
+
+.achieve__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.achieve__info {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+          box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+  border-radius: 4px;
+  width: 735px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  top: -130px;
+  left: -30px;
+  padding: 80px 40px 60px 80px;
+  z-index: 5;
+}
+
+.quote__content {
+  padding: 9px 53px;
+  position: relative;
+  margin: 0px 0px 32px 0px;
+}
+
+.quote__content:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -5px;
+  width: 20px;
+  height: 20px;
+  background: url("../img/achieve/braces.svg") center/cover no-repeat;
+}
+
+.quote__content p {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: #1E212C;
+}
+
+.quote__content p:not(:last-child) {
+  margin: 0px 0px 30px 0px;
+}
+
+.quote__footer {
+  font-size: 14px;
+  line-height: 150%;
+  color: #787A80;
+  padding: 20px 53px;
+  background: url("../img/achieve/signature.svg") right 65px center/100px 68px no-repeat;
+}
+
+.quote__author {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  color: #1E212C;
+  margin: 0px 0px 2px 0px;
+}
+
+.about-mission {
+  background: #f4f5f7;
+  padding: 80px 0px 80px 0px;
+}
+
+.about-mission__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 188px;
+}
+
+.about-mission__item {
+  padding: 71px 0px 0px 0px;
+  text-align: center;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: 48px 48px !important;
+  position: relative;
+}
+
+.about-mission__item--quality {
+  background: url("../img/icons/quality.svg");
+}
+
+.about-mission__item--safety {
+  background: url("../img/icons/safety.svg");
+}
+
+.about-mission__item--comfort {
+  background: url("../img/icons/comfort.svg");
+}
+
+.about-mission__item:not(:last-child):after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -94px;
+  width: 1px;
+  height: 100%;
+  background: url("../img/icons/divider.svg") center no-repeat;
+  background-size: cover !important;
+}
+
+.about-mission__subtitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: #1E212C;
+  margin: 0px 0px 10px 0px;
+}
+
+.about-mission__descr {
+  font-size: 16px;
+  line-height: 160%;
+  color: #787A80;
+}
+
 ._container {
   max-width: 1230px;
   margin: 0 auto;
@@ -3576,3 +3763,7 @@ body._lock {
 .webp .page-hero--work{ background-image: url(../img/workBg.webp); }
 
 .webp .page-hero--project{ background-image: url(../img/projectBg.webp); }
+
+.webp .page-hero--about{ background-image: url(../img/aboutBg.webp); }
+
+.webp .achieve{ background: url(../img/achieve/achieveBg.webp) right bottom -350px no-repeat; }
