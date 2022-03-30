@@ -1,0 +1,114 @@
+.positions-content{
+   padding: 121px 0px 100px 0px;
+   &__left{
+      grid-column: 7 span;
+   }
+
+   &__right{
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      grid-column: 5 span;
+   }
+}
+
+.positions-list{
+   &__item{
+      &:not(:last-child){
+         margin: 0px 0px 25px 0px;
+      }
+   }
+}
+
+.positions-item{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background: #FFFFFF;
+   border: 1px solid #E5E8ED;
+   border-radius: 4px;
+   padding: 32px 40px;
+   transition: all .4s ease-in-out;
+
+   @media(any-hover: hover){
+      &:hover{
+         box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+      }
+   }
+
+   &__meta{
+      font-size: 14px;
+      line-height: 150%;
+      color: $stormGray;
+      margin: 0px 0px 8px 0px;
+   }
+
+   &__city{
+      position: relative;
+      padding: 0px 0px 0px 23px;
+      background: url('../img/icons/city.svg') left center / 16px 16px no-repeat;
+      margin: 0px 21px 0px 0px;
+
+      &:before{
+         content: '';
+         position: absolute;
+         width: 1px;
+         height: 11px;
+         background: currentColor;
+         top: 50%;
+         right: -13px;
+         transform: translateY(-50%);
+      }
+   }
+
+   &__time{
+      padding: 0px 0px 0px 23px;
+      background: url('../img/icons/time.svg') left center / 16px 16px no-repeat;
+   }
+
+   &__title{
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 150%;
+      color: $ebony;
+   }
+   
+   &__link{
+      padding: 11px 30px;
+   }
+}
+
+.positions-looking {
+   width: 390px;
+
+	&__title {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 150%;
+      color: $ebony;
+      margin: 0px 0px 24px 0px;
+	}
+
+	&__descr {
+      font-size: 18px;
+      line-height: 150%;
+      color: $gray;
+      margin: 0px 0px 48px 0px;
+	}
+
+	&__btns {
+	}
+
+	&__btn {
+      &--subs{
+         padding-left: 44px;
+         padding-right: 44px;
+         margin: 0px 20px 0px 0px;
+      }
+
+      &--cv{
+         padding-left: 54px;
+         padding-right: 54px;
+      }
+	}
+}
