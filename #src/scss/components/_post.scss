@@ -1,0 +1,124 @@
+.post{
+   &__cover{
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: -79px 0px 0px 0px;
+   }
+
+   &__wrapper{
+      max-width: 840px;
+      padding: 0 15px;
+      padding-top: 80px;
+      margin: 0 auto;
+   }
+
+   &__share{
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 160%;
+      color: $ebony;
+
+      span{
+         margin: 0px 12px 0px 0px;
+      }
+
+      svg{
+         fill: $stormGray;
+
+         @media(any-hover: hover){
+            &:hover{
+               fill: $ebony;
+            }
+         }
+      }
+   }
+
+   &__content{
+      padding: 0px 0px 60px 0px;
+
+      *{
+         font-size: 16px;
+         line-height: 160%;
+         color: $gray;
+         margin: 0px 0px 28px 0px;
+
+         &:last-child{
+            margin-bottom: 0;
+         }
+      }
+
+      h2{
+         font-weight: 700;
+         font-size: 20px;
+         line-height: 150%;
+         color: $ebony;
+         margin: 0px 0px 25px 0px;
+      }
+
+      h3{
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 140%;
+         color: $ebony;
+         margin: 0px 0px 25px 0px;
+      }
+
+      p{
+         font-size: 16px;
+         line-height: 160%;
+         color: $gray;
+         margin: 0px 0px 28px 0px;
+      }
+
+      blockquote{
+         font-weight: 700;
+         font-size: 20px;
+         line-height: 150%;
+         color: $ebony;
+         position: relative;
+         padding: 21px 5px 21px 58px;
+         margin: 0px 0px 28px 0px;
+
+         &:before{
+            content: '';
+            position: absolute;
+            top: 21px;
+            left: 0px;
+            width: 28px;
+            height: 20px;
+            background: url('../img/achieve/braces.svg') center / cover no-repeat;
+         }
+      }
+
+      ul{
+         margin: 0px 0px 28px 0px;
+
+         li{
+            font-size: 16px;
+            line-height: 160%;
+            color: $gray;
+            position: relative;
+            padding: 0px 0px 0px 32px;
+
+            &:before{
+               content: '';
+               position: absolute;
+               left: 0;
+               top: 4px;
+               width: 16px;
+               height: 16px;
+               background: url('../img/decisions-check.svg') center / cover no-repeat;
+            }
+
+            &:not(:last-child){
+              margin: 0px 0px 3px 0px;
+            }
+         }
+      }
+   }
+}
