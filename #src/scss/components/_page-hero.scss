@@ -45,6 +45,7 @@
          line-height: 1.6;
 
          svg{
+            width: 20px;
             flex: 0 0 20px;
             height: 20px;
          }
@@ -114,5 +115,9 @@
          max-width: none;
          margin: 0px 0px 48px 0px;
       }
+   }
+
+   &--contacts{
+      background-image: url('../img/contactsHeroBg.png');
    }
 }
