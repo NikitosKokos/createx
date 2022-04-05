@@ -9,6 +9,7 @@
 @import "./base/ui";
 // libs
 @import "./libs/swiper-bundle.min";
+@import "./libs/choices.min";
 // blocks
 @import "./blocks/header";
 @import "./blocks/footer";
@@ -61,6 +62,8 @@
 @import "./components/post-comment";
 @import "./components/comment";
 @import "./components/post-form";
+// contacts
+@import "./components/contacts";
 
 // global styles
 ._container {

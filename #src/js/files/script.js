@@ -148,8 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
       formBtn.disabled = !checkbox.checked;
     }
 
-    formCheckbox.addEventListener('change', (e) => changeBtnState(e.currentTarget));
-    changeBtnState(formCheckbox);
+    if(formCheckbox){
+      formCheckbox.addEventListener('change', (e) => changeBtnState(e.currentTarget));
+      changeBtnState(formCheckbox);
+    }
+    
 
    //  tabs
    const portfolioTabsNav = document.querySelector('.portfolio-tabs-nav');
@@ -260,5 +263,16 @@ document.addEventListener('DOMContentLoaded', () => {
          }
       });
    }
+
+   // selects
+   const selects = document.querySelectorAll('.form-field__select');
+
+   selects.forEach(el => {
+      new Choices(el, {
+         shouldSort: false,
+         position: 'bottom',
+         searchEnabled: false,
+      });
+   })
 
 }); // end

@@ -127,3 +127,64 @@
       border: 1px solid #D7DADD;
    }
 }
+
+.custom-radio{
+   position: relative;
+   cursor: pointer;
+   &__input{
+      position: absolute;
+      opacity: 0;
+   }
+
+   &__text{
+      display: inline-block;
+      position: relative;
+      padding: 0px 0px 0px 27px;
+      font-size: 16px;
+      line-height: 160%;
+      color: $gray;
+
+      &:before{
+         content: '';
+         position: absolute;
+         left: -1px;
+         top: 4px;
+         display: inline-block;
+         width: 16px;
+         height: 16px;
+         border: 1px solid #B3B7BC;
+         border-radius: 50%;
+         transition: all .3s ease-in-out;
+      }
+
+      &:after{
+         content: '';
+         position: absolute;
+         left: 3px;
+         top: 8px;
+         width: 8px;
+         height: 8px;
+         background: $orange;
+         border-radius: 50%;
+         opacity: 0;
+         transition: all .3s ease-in-out;
+      }
+   }
+   
+   &__input:checked + &__text:before{
+      border-color: $orange;
+   }
+
+   &__input:checked + &__text:after{
+      opacity: 1;
+   }
+
+   &__input:disabled + &__text{
+      opacity: .5;
+   }
+
+   &__input:disabled + &__text:before{
+      background: $athens;
+      border: 1px solid #D7DADD;
+   }
+}

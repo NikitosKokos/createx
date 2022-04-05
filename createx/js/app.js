@@ -151,8 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
       formBtn.disabled = !checkbox.checked;
     }
 
-    formCheckbox.addEventListener('change', (e) => changeBtnState(e.currentTarget));
-    changeBtnState(formCheckbox);
+    if(formCheckbox){
+      formCheckbox.addEventListener('change', (e) => changeBtnState(e.currentTarget));
+      changeBtnState(formCheckbox);
+    }
+    
 
    //  tabs
    const portfolioTabsNav = document.querySelector('.portfolio-tabs-nav');
@@ -263,6 +266,17 @@ document.addEventListener('DOMContentLoaded', () => {
          }
       });
    }
+
+   // selects
+   const selects = document.querySelectorAll('.form-field__select');
+
+   selects.forEach(el => {
+      new Choices(el, {
+         shouldSort: false,
+         position: 'bottom',
+         searchEnabled: false,
+      });
+   })
 
 }); // end
 let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
@@ -395,7 +409,7 @@ for (let index = 0; index < viewPass.length; index++) {
 	});
 }
 
-
+/*
 //Select
 let selects = document.getElementsByTagName('select');
 if (selects.length > 0) {
@@ -440,6 +454,7 @@ function select_init(select) {
 	new_select.appendChild(select);
 	select_item(select);
 }
+
 function select_item(select) {
 	const select_parent = select.parentElement;
 	const select_items = select_parent.querySelector('.select__item');
@@ -554,6 +569,7 @@ function selects_update_all() {
 		}
 	}
 }
+*/
 
 //Placeholers
 let inputs = document.querySelectorAll('input[data-value],textarea[data-value]');
