@@ -1,0 +1,137 @@
+.contacts-info {
+   padding: 80px 0px 120px 0px;
+   background: $athens;
+
+   $contactsGap: 120px;
+   &__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $contactsGap * 2;
+      margin: 0px 0px 118px 0px;
+   }
+
+   &__item {
+      position: relative;
+
+      &:not(:last-child) {
+         &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -$contactsGap;
+            width: 1px;
+            height: 100%;
+            background: url('../img/icons/divider.svg') center no-repeat;
+            background-size: cover !important;
+         }
+      }
+   }
+
+   &__subtitle {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 150%;
+      color: $ebony;
+      margin: 0px 0px 24px 0px;
+   }
+
+   &__address {
+      display: inline-block;
+      margin: 0px 0px 6px 0px;
+      font-size: 16px;
+      line-height: 160%;
+      color: $ebony;
+      font-style: normal;
+   }
+
+   &__link {
+      font-size: 16px;
+      line-height: 160%;
+      color: $orange;
+      border-bottom: 1px solid $orange;
+      transition: all 0.3s ease-in-out;
+
+      @media (any-hover: hover) {
+         &:hover {
+            border-color: transparent;
+         }
+      }
+   }
+
+   &__bottom{
+      margin: 20px 0px 0px 0px;
+   }
+
+   &__element {
+      font-size: 16px;
+      line-height: 160%;
+      color: #787a80;
+   
+      &:not(:last-child){
+        margin: 0px 0px 4px 0px;
+      }
+
+      a {
+         position: relative;
+         transition: all 0.3s ease-in-out;
+
+         &:before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            opacity: 0;
+            color: inherit;
+            background: currentColor;
+            transition: all 0.3s ease-in-out;
+         }
+
+         @media (any-hover: hover) {
+            &:hover {
+               &:before {
+                  opacity: 1;
+                  width: 100%;
+               }
+            }
+         }
+      }
+   }
+
+   &__value {
+      color: $ebony;
+      margin: 0px 0px 0px 4px;
+   }
+
+   &__soc{
+      margin: 0px 0px 40px 0px;
+   }
+
+   &__social{
+      justify-content: center;
+
+      .social__item{
+         &:not(:last-child){
+           margin: 0px 24px 0px 0px;
+         }
+      }
+
+      .social__link{
+         width: 32px;
+         height: 32px;
+
+         svg{
+            fill: $stormGray;
+         }
+
+         @media(any-hover: hover){
+            &:hover{
+               svg{
+                  fill: $orange;
+               }
+            }
+         }
+      }
+   }
+}

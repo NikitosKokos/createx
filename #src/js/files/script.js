@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
    // sliders
    const sliderCont = document.querySelector('.portfolio-section__items');
-   if(sliderCont){
+   if (sliderCont) {
       const sliderPortfolio = new Swiper(sliderCont, {
          slidesPerView: 3,
          spaceBetween: 30,
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
    }
    const sliderContTest = document.querySelector('.testimonials__items');
-   if(sliderContTest){
+   if (sliderContTest) {
       const sliderTestimonials = new Swiper('.testimonials__items', {
          slidesPerView: 1,
          spaceBetween: 30,
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.testimonials__next',
             prevEl: '.testimonials__prev',
          },
-      });      
+      });
    }
    const relatedSlider = document.querySelector('.related-projects__items');
-   if(relatedSlider){
+   if (relatedSlider) {
       const sliderRelated = new Swiper(relatedSlider, {
          slidesPerView: 3,
          spaceBetween: 30,
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
    }
 
    const projectSlider = document.querySelector('.project-slider-swiper');
-   if(projectSlider){
+   if (projectSlider) {
       const sliderProjectNav = new Swiper('.project-slider-nav', {
          slidesPerView: 10,
          spaceBetween: 20,
@@ -84,7 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
             elem.classList.remove('_active');
          });
 
-         document.querySelector(`.history-nav__btn[data-index="${sliderHistory.realIndex}"]`).classList.add('_active');
+         document
+            .querySelector(`.history-nav__btn[data-index="${sliderHistory.realIndex}"]`)
+            .classList.add('_active');
       });
 
       historyNavBtns.forEach((el, i) => {
@@ -93,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
          el.addEventListener('click', (e) => {
             const i = e.currentTarget.dataset.index;
 
-            historyNavBtns.forEach(elem => {
+            historyNavBtns.forEach((elem) => {
                elem.classList.remove('_active');
             });
 
@@ -104,10 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
    }
 
-
    //  circles
-    const circles = document.querySelectorAll('.facts-element__circle');
-    if (circles){
+   const circles = document.querySelectorAll('.facts-element__circle');
+   if (circles) {
       circles.forEach((el) => {
          if (el.dataset.percentage == 'true') {
             let progress = el.querySelector('.progress');
@@ -137,22 +138,35 @@ document.addEventListener('DOMContentLoaded', () => {
                circleLength - (circleLength * percentageProgress) / 100,
             );
          }
-      });       
-    }
+      });
+   }
 
    //  checkbox with from
-    const formCheckbox = document.querySelector('.contacts-from__checkbox .custom-checkbox__input');
-    const formBtn = document.querySelector('.contacts-from__btn');
+   const formCheckbox = document.querySelector('.contacts-from__checkbox .custom-checkbox__input');
+   const formBtn = document.querySelector('.contacts-from__btn');
 
-    const changeBtnState = (checkbox) => {
+   const changeBtnState = (checkbox) => {
       formBtn.disabled = !checkbox.checked;
-    }
+   };
 
-    if(formCheckbox){
+   if (formCheckbox) {
       formCheckbox.addEventListener('change', (e) => changeBtnState(e.currentTarget));
       changeBtnState(formCheckbox);
-    }
-    
+   }
+
+   const formCheckboxContacts = document.querySelector('.form-contacts__checkbox .custom-checkbox__input');
+   const formBtnContacts = document.querySelector('.form-contacts__btn');
+
+   const changeBtnContactsState = (checkbox) => {
+      formBtnContacts.disabled = !checkbox.checked;
+   };
+
+   if (formCheckboxContacts) {
+      formCheckboxContacts.addEventListener('change', (e) =>
+         changeBtnContactsState(e.currentTarget),
+      );
+      changeBtnContactsState(formCheckboxContacts);
+   }
 
    //  tabs
    const portfolioTabsNav = document.querySelector('.portfolio-tabs-nav');
@@ -162,27 +176,27 @@ document.addEventListener('DOMContentLoaded', () => {
    const itemsCount = 9;
    let page = 1;
 
-   if(portfolioTabsNav){
+   if (portfolioTabsNav) {
       const isLoadMoreNeeded = (selector, page = 1) => {
          if (selector.length <= itemsCount * page) {
             loadMore.style.display = 'none';
          } else {
             loadMore.style.display = 'flex';
          }
-      }
+      };
 
       portfolioTabsNav.addEventListener('click', (e) => {
          const target = e.target;
-         if(target.classList.contains('portfolio-tabs-nav__btn')){
+         if (target.classList.contains('portfolio-tabs-nav__btn')) {
             const path = target.dataset.path;
 
             page = 1;
-            
+
             portfolioTabsItems.forEach((el) => {
                el.classList.remove('_visible');
             });
 
-            if(path === 'all'){
+            if (path === 'all') {
                [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
                   el.classList.add('_visible');
                });
@@ -193,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                isLoadMoreNeeded(document.querySelectorAll('.portfolio-tabs__item'));
                return;
             }
-            
+
             let currentItems = document.querySelectorAll(`[data-target='${path}']`);
             if (document.querySelectorAll(`[data-target='${path}']`).length > itemsCount) {
                currentItems = [...currentItems].slice(0, itemsCount);
@@ -211,20 +225,20 @@ document.addEventListener('DOMContentLoaded', () => {
          }
       });
 
-      if(portfolioTabsItems.length > itemsCount){
+      if (portfolioTabsItems.length > itemsCount) {
          [...portfolioTabsItems].slice(0, itemsCount).forEach((el) => {
             el.classList.add('_visible');
          });
       }
-      
+
       isLoadMoreNeeded(portfolioTabsItems);
 
       loadMore.addEventListener('click', (e) => {
          const path = document.querySelector('.portfolio-tabs-nav__btn._active').dataset.path;
 
-         if(path === 'all'){
+         if (path === 'all') {
             const hiddenItems = [...portfolioTabsItems].slice(itemsCount * page);
-            
+
             if (hiddenItems.length > itemsCount) {
                const currentItems = [...portfolioTabsItems].slice(
                   itemsCount * page,
@@ -241,11 +255,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             page++;
             isLoadMoreNeeded(portfolioTabsItems, page);
-         }else{
-            const hiddenItems = [...document.querySelectorAll(`[data-target='${path}']`)]
-            .slice(itemsCount * page);
+         } else {
+            const hiddenItems = [...document.querySelectorAll(`[data-target='${path}']`)].slice(
+               itemsCount * page,
+            );
 
-            if (hiddenItems.length > itemsCount){
+            if (hiddenItems.length > itemsCount) {
                const currentItems = [...document.querySelectorAll(`[data-target='${path}']`)].slice(
                   itemsCount * page,
                   itemsCount * (page + 1),
@@ -253,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
                currentItems.forEach((el) => {
                   el.closest('.portfolio-tabs__item').classList.add('_visible');
                });
-            }else{
+            } else {
                hiddenItems.forEach((el) => {
                   el.closest('.portfolio-tabs__item').classList.add('_visible');
                });
@@ -267,12 +282,11 @@ document.addEventListener('DOMContentLoaded', () => {
    // selects
    const selects = document.querySelectorAll('.form-field__select');
 
-   selects.forEach(el => {
+   selects.forEach((el) => {
       new Choices(el, {
          shouldSort: false,
          position: 'bottom',
          searchEnabled: false,
       });
-   })
-
+   });
 }); // end
