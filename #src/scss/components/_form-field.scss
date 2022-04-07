@@ -23,6 +23,7 @@
       font-size: 14px;
       color: $gray;
       padding: 0 16px;
+      transition: all .3s ease-in-out;
 
       &::placeholder{
          color: #9A9CA5;
@@ -32,6 +33,10 @@
          height: 66px;
          resize: none;
          padding-top: 10px;
+      }
+
+      &:focus{
+         border-color: #9A9CA5;
       }
    }
 

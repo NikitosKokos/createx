@@ -3,13 +3,42 @@ function email_test(input) {
 }
 document.addEventListener('DOMContentLoaded', () => {
    // sliders
+   const sliderMain = document.querySelector('.hero-slider');
+   if (sliderMain) {
+      const sliderHero = new Swiper(sliderMain, {
+         slidesPerView: 1,
+         speed: 1000,
+         // Arrows
+         navigation: {
+            nextEl: '.hero__next',
+            prevEl: '.hero__prev',
+         },
+         pagination: {
+            el: '.hero__pag',
+            clickable: true,
+         },
+         autoplay: {
+            delay: 5000,
+         },
+         on: {
+            afterInit: function () {
+               const paginationBullets = document.querySelectorAll(
+                  '.hero__pag .swiper-pagination-bullet',
+               );
+
+               paginationBullets.forEach((el) => {
+                  el.innerHTML = `<span class="hero__bar"></span>`;
+               });
+            },
+         },
+      });
+   }
    const sliderCont = document.querySelector('.portfolio-section__items');
    if (sliderCont) {
       const sliderPortfolio = new Swiper(sliderCont, {
          slidesPerView: 3,
          spaceBetween: 30,
          speed: 800,
-         // Arrows
          navigation: {
             nextEl: '.portfolio-section__next',
             prevEl: '.portfolio-section__prev',

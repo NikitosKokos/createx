@@ -38,12 +38,37 @@
       height: 80px;
       z-index: 3;
 
+      &:before{
+         content: '';
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50% , -50%) scale(0);
+         width: 112px;
+         height: 112px;
+         border-radius: 50%;
+         background: rgba(#FF5A30, .3);
+         transition: all .4s cubic-bezier(0.78, 0.71, 0.72, 1.43);
+         visibility: hidden;
+         pointer-events: none;
+         z-index: -1;
+      }
+
       svg{
          width: 26px;
          height: 26px;
 
          use{
             fill: #fff;
+         }
+      }
+
+      @media(any-hover: hover){
+         &:hover{
+            &:before{
+               visibility: visible;
+               transform: translate(-50% , -50%) scale(1);
+            }
          }
       }
    }
@@ -60,6 +85,7 @@
       width: 40px;
       height: 40px;
       z-index: 3;
+      transition: all .3s ease-in-out;
 
       svg{
          width: 20px;
@@ -67,6 +93,12 @@
 
          use{
             fill: #fff;
+         }
+      }
+
+      @media(any-hover: hover){
+         &:hover{
+            background: #333;
          }
       }
    }
