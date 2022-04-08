@@ -7,4 +7,5 @@
 // @ @include("files/select.js",{});
 // @ @include("files/tabs.js",{});
 @@include("files/sliders.js",{});
+@@include("files/video.js",{});
     

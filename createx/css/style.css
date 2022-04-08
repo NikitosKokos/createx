@@ -2054,6 +2054,14 @@ button.swiper-pagination-bullet {
   height: 100%;
   z-index: 2;
   background: rgba(30, 33, 44, 0.6);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.video-block.play:before {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .video-block__content {
@@ -2085,6 +2093,9 @@ button.swiper-pagination-bullet {
   width: 80px;
   height: 80px;
   z-index: 3;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .video-block__play:before {
@@ -2114,6 +2125,11 @@ button.swiper-pagination-bullet {
 
 .video-block__play svg use {
   fill: #fff;
+}
+
+.video-block__play.played {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .video-block__muted {
@@ -2146,6 +2162,23 @@ button.swiper-pagination-bullet {
 
 .video-block__muted svg use {
   fill: #fff;
+}
+
+.video-block__muted.played {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.video-block__mute.hide {
+  display: none;
+}
+
+.video-block__unmute {
+  display: none;
+}
+
+.video-block__unmute.show {
+  display: block;
 }
 
 .about-section {
