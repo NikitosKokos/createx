@@ -4,7 +4,6 @@
 @import "./base/fonts";
 @import "./base/icons"; 
 @import "./base/zeroing";
-// @import "./base/popup";
 // @import "./base/burger";
 @import "./base/ui";
 // libs
@@ -65,6 +64,8 @@
 // contacts
 @import "./components/contacts";
 @import "./components/contacts-info";
+// popup
+@import "./base/popup";
 
 // global styles
 ._container {

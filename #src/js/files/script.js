@@ -308,14 +308,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
    }
 
-   // selects
-   const selects = document.querySelectorAll('.form-field__select');
-
-   selects.forEach((el) => {
-      new Choices(el, {
-         shouldSort: false,
-         position: 'bottom',
-         searchEnabled: false,
-      });
+   // scroll to top
+   const scroll = new SmoothScroll('.to-top', {
+      speed: 200
    });
+
+   const toTop = document.querySelector('.to-top');
+   const heroHeight = !!document.querySelector('.hero') ? document.querySelector('.hero').offsetHeight : 500;
+
+   const isVisibleToTop = (y = 0) => {
+      if(y >= heroHeight){
+         toTop.classList.add('_active');
+      }else{
+         toTop.classList.remove('_active');
+      }
+   }
+
+   isVisibleToTop(window.scrollY);
+
+   window.addEventListener('scroll', () => {
+      isVisibleToTop(window.scrollY);
+   });
+
 }); // end

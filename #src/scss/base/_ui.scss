@@ -188,3 +188,57 @@
    grid-template-columns: repeat(12, 1fr);
    gap: 30px;
 }
+
+.to-top{
+	position: fixed;
+	right: calc((100% - 1230px) /	 2);
+	bottom: 80px;
+	display: flex;
+	align-items: flex-end;
+	z-index: 10;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(40px);
+	transition: all .3s ease-in-out;
+
+	&._active{
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0px);
+	}
+
+	&__text{
+		text-transform: uppercase;
+		font-size: 14px;
+		line-height: 150%;
+		color: #fff;		
+		text-shadow: 1px 1px 5px $ebony;
+		margin: 0px 16px 0px 0px;
+	}
+
+	&__icon{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+		background: $orange;
+		border-radius: 4px;
+		transition: all .3s ease-in-out;
+
+		svg{
+			width: 24px;
+			height: 24px;
+			object-fit: cover;
+			fill: #fff;
+		}
+	}
+
+	@media(any-hover: hover){
+		&:hover{
+			.to-top__icon{
+				background: #FC3300;
+			}
+		}
+	}
+}

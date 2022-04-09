@@ -193,3 +193,33 @@
       border: 1px solid #D7DADD;
    }
 }
+
+.custom-file{
+   position: relative;
+   cursor: pointer;
+   &__input{
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+   }
+
+   &__text{
+      display: inline-block;
+      position: relative;
+      padding: 0px 0px 0px 36px;
+      font-size: 16px;
+      line-height: 170%;
+      color: $gray;
+      background: url('../../img/icons/file.svg') left center / 24px 24px no-repeat;
+   }
+   
+   &__input:disabled + &__text{
+      opacity: .5;
+   }
+
+   &__input:disabled + &__text:before{
+      background: $athens;
+      border: 1px solid #D7DADD;
+   }
+}
