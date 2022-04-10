@@ -4,11 +4,26 @@
    background: url('../img/backgroundServicesSection.jpg') center no-repeat;
    background-size: cover !important;
    background-attachment: fixed !important;
+
+   @media (max-width: 576px){
+      padding-bottom: 40px;
+   }
 }
 
 .services-list{
    &__item{
       grid-column: 3 span;
+
+      @media (max-width: 1024px){
+         grid-column: 6 span;
+      }
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
+      }
+   }
+   @media (max-width: 576px){
+      grid-template-columns: repeat(4, 1fr);
    }
 }
 
@@ -72,6 +87,10 @@
       line-height: 150%;
       color: $ebony;
       transition: all .3s ease-in-out;
+
+      @media (max-width: $md1+px){
+         font-size: 18px;
+      }
    }
 
    @media(any-hover: hover){

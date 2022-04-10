@@ -1,5 +1,8 @@
 .related-projects{
    padding: 180px 0 100px 0;
+   @media (max-width: 576px){
+      padding: 60px 0;
+   }
    &__title{
       max-width: 710px;
       margin: 0px 0px 12px 0px;
@@ -10,6 +13,12 @@
       justify-content: space-between;
       align-items: flex-end;
       margin: 0px 0px 48px 0px;
+
+      @media (max-width: 576px){
+         flex-direction: column;
+         align-items: flex-start;
+         margin: 0px 0px 20px 0px;
+      }
    }
 
    &__items{

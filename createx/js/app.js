@@ -36,13 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
    const sliderCont = document.querySelector('.portfolio-section__items');
    if (sliderCont) {
       const sliderPortfolio = new Swiper(sliderCont, {
-         slidesPerView: 3,
+         slidesPerView: 1,
          spaceBetween: 30,
          speed: 800,
          navigation: {
             nextEl: '.portfolio-section__next',
             prevEl: '.portfolio-section__prev',
          },
+         breakpoints: {
+            320: {
+               slidesPerView: 1,
+            },
+            576: {
+               slidesPerView: 2,
+            },
+            768: {
+               slidesPerView: 3,
+            }
+         }
       });
    }
    const sliderContTest = document.querySelector('.testimonials__items');
@@ -62,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const relatedSlider = document.querySelector('.related-projects__items');
    if (relatedSlider) {
       const sliderRelated = new Swiper(relatedSlider, {
-         slidesPerView: 3,
+         slidesPerView: 1,
          spaceBetween: 30,
          speed: 800,
          // Arrows
@@ -70,17 +81,40 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.related-projects__next',
             prevEl: '.related-projects__prev',
          },
+         breakpoints: {
+            320: {
+               slidesPerView: 1,
+            },
+            576: {
+               slidesPerView: 2,
+            },
+            768: {
+               slidesPerView: 3,
+            }
+         }
       });
    }
 
    const projectSlider = document.querySelector('.project-slider-swiper');
    if (projectSlider) {
       const sliderProjectNav = new Swiper('.project-slider-nav', {
-         slidesPerView: 10,
-         spaceBetween: 20,
+         slidesPerView: 6,
+         spaceBetween: 10,
          speed: 800,
          freeMode: true,
          watchSlidesProgress: true,
+         breakpoints: {
+            320: {
+               slidesPerView: 6,
+               spaceBetween: 10,
+            },
+            576: {
+               spaceBetween: 20,
+            },
+            1260: {
+               slidesPerView: 10,
+            }
+         }
       });
       const sliderProject = new Swiper(projectSlider, {
          slidesPerView: 1,
@@ -1216,7 +1250,16 @@ function gallery_init() {
 }
 //=================
 ;
-// @ @include('files/burger.js', {});
+const burger = document.querySelector('.burger');
+const headerMenu = document.querySelector('[data-menu]');
+const overlay = document.querySelector('.overlayMenu');
+burger.addEventListener("click", () =>{
+    headerMenu.classList.toggle("_active");
+    burger.classList.toggle("_active");
+    overlay.classList.toggle("_active");
+    document.body.classList.toggle("_lock");
+    
+});;
 let spollers = document.querySelectorAll("[data-spoller]");
 if (spollers.length > 0) {
    let isReadyToChange = true;

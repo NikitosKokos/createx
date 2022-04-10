@@ -5,16 +5,29 @@
 
    &__logo{
       margin: 0px 60px 0px 0px;
+
+      @media (max-width: 576px){
+         margin: 0px 0px 20px 0px;
+      }
    }
 
    &__left{
       grid-column: 7 span;
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
+      }
    }
 
    &__top{
       display: flex;
       align-items: center;
       margin: 0px 0px 22px 0px;
+
+      @media (max-width: 576px){
+         flex-direction: column;
+         align-items: flex-start;
+      }
    }
 
    &__descr{
@@ -26,6 +39,14 @@
 
    &__form{
       grid-column: 5 span;
+
+      @media (max-width: $md3+px){
+         grid-column: 12 span;
+      }
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
+      }
    }
 
    &__address{
@@ -34,6 +55,10 @@
 
    &__nav{
       grid-column: 8 span;
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
+      }
    }
 
    &__made{
@@ -42,6 +67,10 @@
       font-size: 12px;
       line-height: 150%;
       color: #fff;
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
+      }
 
       a{
          color: inherit;
@@ -146,9 +175,25 @@
    padding: 20px 0px 0px 54px;
    display: flex;
 
+   @media (max-width: $md3+px){
+      padding-left: 24px;
+   }
+
+   @media (max-width: 576px){
+      padding-left: 0;
+   }
+
    &__col{
       &:not(:last-child){
         margin: 0px 125px 0px 0px;
+
+        @media (max-width: $md3+px){
+           margin: 0px 65px 0px 0px;
+        }
+
+        @media (max-width: 576px){
+           margin: 0px 35px 0px 0px;
+        }
       }
    }
 

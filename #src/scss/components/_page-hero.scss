@@ -5,6 +5,22 @@
    background-position: right -8px top;
    background-repeat: no-repeat;
 
+   &--post{
+      @media (max-width: 1024px){
+         margin: 0px 0px 30px 0px;
+      }
+
+      .page-hero__title{
+         @media (max-width: $md3+px){
+            font-size: 40px;
+         }
+
+         @media (max-width: $md4+px){
+            font-size: 30px;
+         }
+      }
+   }
+
    &__breadcrumbs{
       margin: 0px 0px 40px 0px;
    }
@@ -19,6 +35,10 @@
       max-width: 600px;
       margin: 0px 0px 24px 0px;
 
+      @media (max-width: $md3+px){
+         font-size: 40px;
+      }
+
       &--small{
          text-transform: initial;
          font-size: 64px;
@@ -31,12 +51,21 @@
       line-height: 150%;
       color: $stormGray;
       max-width: 600px;
+
+      @media (max-width: $md3+px){
+         font-size: 16px;
+      }
    }
 
    &__bottom{
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      @media (max-width: 576px){
+         flex-direction: column;
+         align-items: flex-start;
+      }
    }
 
    &__meta{
@@ -62,6 +91,10 @@
       time.article-meta__item{
          padding-left: 28px;
          background: url('../img/icons/time.svg') left center / 20px 20px no-repeat;
+      }
+
+      @media (max-width: 576px){
+         margin: 0px 0px 15px 0px;
       }
    }
 
@@ -119,5 +152,10 @@
 
    &--contacts{
       background-image: url('../img/contactsHeroBg.png');
+   }
+
+   @media (max-width: 1024px){
+      background-image: none !important;
+      min-height: auto;
    }
 }

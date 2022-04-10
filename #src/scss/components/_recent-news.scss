@@ -2,6 +2,10 @@
    padding: 0px 0px 120px 0px;
    &__list{
       grid-template-rows: repeat(2, 255px);
+
+      @media (max-width: 1024px){
+         grid-template-rows: initial;
+      }
    }
 
    &__title{
@@ -13,6 +17,24 @@
       &:first-child{
          grid-column: 7 span;
          grid-row: 2 span;
+
+         @media (max-width: 1024px){
+            grid-column: 12 span;
+            grid-row: auto;
+         }
+
+         @media (max-width: 576px){
+            grid-column: 4 span;
+         }
+      }
+
+      @media (max-width: 1024px){
+         grid-column: 12 span;
+         grid-row: auto;
+      }
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
       }
    }
 }
@@ -33,6 +55,13 @@
 
    &__text{
       padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @media (max-width: $md3+px){
+         padding: 15px;
+      }
    }
 
    &__descr{
@@ -81,16 +110,17 @@
    font-size: 14px;
    line-height: 150%;
    color: $stormGray;
-   display: flex;
+   display: inline-flex;
    align-items: center;
+   justify-content: flex-start;
+   overflow-y: auto;
 
    &__item{
       color: inherit;
       position: relative;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      white-space: nowrap;
-
+      flex: 0 0 auto;
       
 
       &:not(:last-child){
@@ -114,6 +144,7 @@
       transition: all .3s ease-in-out;
 
       svg{
+         width: 16px;
          flex: 0 0 16px;
          height: 16px;
          fill: $stormGray;

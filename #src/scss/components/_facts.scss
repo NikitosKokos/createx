@@ -3,6 +3,10 @@
    overflow: hidden;
    padding: 180px 0px;
 
+   @media (max-width: 576px){
+      padding: 60px 0;
+   }
+
    &:before{
       content: '';
       position: absolute;
@@ -12,6 +16,10 @@
       height: 1065px;
       background: url('../img/factsBg.png') center no-repeat;
       z-index: -1;
+
+      @media (max-width: $md1+px){
+         display: none;
+      }
    }
 
    &__list{
@@ -20,6 +28,14 @@
       gap: 48px;
       max-width: 736px;
       margin: 0 auto;
+
+      @media (max-width: $md3+px){
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 576px){
+         grid-template-columns: 1fr;
+         gap: 40px;
+      }
    }
 
    &__title{
@@ -28,6 +44,11 @@
 }
 
 .facts-element{
+   @media (max-width: $md3+px){
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
    &__circle{
       --progress-stroke: #000;
       --progress-bg-opacity: 0.3;

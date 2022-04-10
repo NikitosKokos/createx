@@ -1,13 +1,24 @@
 .contacts-info {
    padding: 80px 0px 120px 0px;
    background: $athens;
+   @media (max-width: $md3+px){
+      padding: 80px 0px;
+   }
 
    $contactsGap: 120px;
+   @media (max-width: $md1+px){
+      $contactsGap: 40px;
+   }
    &__list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: $contactsGap * 2;
       margin: 0px 0px 118px 0px;
+
+      @media (max-width: $md3+px){
+         display: block;
+         margin: 0px 0px 80px 0px;
+      }
    }
 
    &__item {
@@ -23,6 +34,12 @@
             height: 100%;
             background: url('../img/icons/divider.svg') center no-repeat;
             background-size: cover !important;
+            @media (max-width: $md3+px){
+               display: none;
+            }
+         }
+         @media (max-width: $md3+px){
+            margin: 0px 0px 30px 0px;
          }
       }
    }

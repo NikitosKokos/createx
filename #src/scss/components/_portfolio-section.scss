@@ -1,8 +1,15 @@
 .portfolio-section{
    padding: 120px 0;
+   @media (max-width: 576px){
+      padding: 60px 0;
+   }
    &__title{
       max-width: 710px;
       margin: 0px 0px 12px 0px;
+
+      @media (max-width: 1024px){
+         font-size: 40px;
+      }
    }
 
    &__top{
@@ -10,6 +17,11 @@
       justify-content: space-between;
       align-items: flex-end;
       margin: 0px 0px 48px 0px;
+
+      @media (max-width: 576px){
+         display: block;
+         margin: 0px 0px 20px 0px;
+      }
    }
 
    &__items{
@@ -86,6 +98,11 @@
       left: 50%;
       transform: translateX(-50%);
       transition: all .4s cubic-bezier(0.78, 0.71, 0.72, 1.43);
+
+      @media(any-hover: none){
+         position: static;
+         transform: translateX(0);
+      }
    }
 
    @media(any-hover: hover){

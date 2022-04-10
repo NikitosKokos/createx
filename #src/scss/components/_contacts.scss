@@ -1,25 +1,56 @@
 .contacts{
    padding: 120px 0px;
+   @media (max-width: $md3+px){
+      padding: 80px 0px;
+   }
 
    &__content{
       display: flex;
       justify-content: space-between;
+
+      @media (max-width: 1024px){
+         display: block;
+      }
    }
 
    &__image{
       flex-shrink: 0;
       margin: 0px 20px 0px 0px;
+
+      @media (max-width: $md1+px){
+         flex: 1 1;
+      }
+
+      @media (max-width: 1024px){
+         display: none;
+      }
+
+      img{
+         width: 100%;
+         height: auto;
+         object-fit: contain;
+      }
    }
 }
 
 .form-contacts{
-   width: 600px;
+   flex: 0 0 600px;
 
    &__line{
       width: 100%;
       display: flex;
       justify-content: space-between;
       margin: 0px 0px 23px 0px;
+
+      @media (max-width: 600px){
+         display: block;
+         margin: 0px 0px 0px 0px;
+
+         .form-contacts__field {
+            width: 100%;
+            margin: 0px 0px 15px 0px;
+         }
+      }
    }
 
    &__field{
@@ -35,10 +66,20 @@
       align-items: center;
       justify-content: space-between;
       padding: 39px 0px 0px 0px;
+
+      @media (max-width: 600px){
+         display: block;
+      }
    }
 
    &__checkbox{
       max-width: 315px;
+
+      @media (max-width: 600px){
+         display: block;
+         max-width: none;
+         margin: 0px 0px 20px 0px;
+      }
 
       .custom-checkbox__text{
          font-size: 16px;
@@ -47,6 +88,12 @@
          &:before, &:after{
             top: 4px;
          }
+      }
+   }
+
+   &__btn{
+      @media (max-width: $md4+px){
+         width: 100%;
       }
    }
 
@@ -67,6 +114,11 @@
 
       .form-field__caption{
          margin: 0px 0px 21px 0px;
+      }
+
+      @media (max-width: 600px){
+         width: 100%;
+         margin: 0px 0px 15px 0px;
       }
    }
 

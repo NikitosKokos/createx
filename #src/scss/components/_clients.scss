@@ -1,5 +1,8 @@
 .clients{
    padding: 160px 0px 120px 0px;
+   @media (max-width: 576px){
+      padding: 60px 0px 100px 0px;
+   }
 
    &__title{
       margin: 0px 0px 60px 0px;
@@ -9,5 +12,16 @@
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 102px;
+      @media (max-width: $md1+px){
+         column-gap: 30px;
+      }
+   }
+
+   &__item{
+      @media (max-width: $md1+px){
+         grid-column: 3 span;
+         display: flex;
+         justify-content: center;
+      }
    }
 }

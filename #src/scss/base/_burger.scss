@@ -1,14 +1,14 @@
-$burgerColor: #fff;
 
 .burger {
+  $burgerColor: $ebony;
   display: none;
-  @media (max-width: $md3+px) {
+  @media (max-width: 1024px) {
     @include adaptiv-value('margin-left', 32, 15, 1);
     display: block;
     position: relative;
     flex: 0 0 30px;
     height: 18px;
-    z-index: 10;
+    z-index: 101;
     span {
       background: $burgerColor;
       position: absolute;
@@ -31,8 +31,13 @@ $burgerColor: #fff;
     }
 
     &._active {
+      position: fixed;
+      right: 15px;
+      top: 25px;
+      width: 30px;
       span {
         transform: scale(0);
+        background: #fff;
 
         &:first-child {
           transform: rotate(-45deg);

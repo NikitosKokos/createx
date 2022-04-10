@@ -10,5 +10,20 @@
       line-height: 150%;
       color: $ebony;
       margin: 0px 40px 0px 0px;
+
+      @media (max-width: $md3+px){
+         max-width: 50%;
+         margin: 0px 10px 0px 0px;
+      }
+
+      @media (max-width: 576px){
+         max-width: none;
+         margin: 0px 0px 15px 0px;
+      }
+   }
+
+   @media (max-width: 576px){
+      flex-direction: column;
+      align-items: flex-start;
    }
 }

@@ -3,11 +3,18 @@
    position: relative;
    overflow: hidden;
 
+   @media (max-width: 576px){
+      padding: 80px 0;
+   }
+
    &__decorate{
       &-1{
          position: absolute;
          left: -6px;
          bottom: -248px;
+         @media (max-width: 576px){
+            display: none;
+         }
       }
 
       &-2{
@@ -16,6 +23,9 @@
          margin-top: -134px;
          top: 50%;
          transform: translateY(-50%);
+         @media (max-width: 576px){
+            display: none;
+         }
       }
    }
 
@@ -26,17 +36,28 @@
 
    &__item{
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
       gap: 80px;
+      @media (max-width: 1024px){
+         gap: 30px;
+      }
+      @media (max-width: 576px){
+         gap: 15px;
+      }
 
       &:nth-child(even){
          .services__info{
             order: -1;
+            @media (max-width: 576px){
+               order: initial;
+            }
          }
       }
 
       &:not(:last-child){
         margin: 0px 0px 120px 0px;
+        @media (max-width: 576px){
+           margin: 0px 0px 30px 0px;
+        }
       }
    }
 
@@ -44,6 +65,11 @@
       grid-column: 6 span;
       border-radius: 4px;
       overflow: hidden;
+      width: 100%;
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
+      }
 
       img{
          width: 100%;
@@ -55,6 +81,11 @@
    &__info{
       grid-column: 6 span;
       padding: 76px 0;
+
+      @media (max-width: 576px){
+         grid-column: 4 span;
+         padding: 0;
+      }
    }
 
    &__title{

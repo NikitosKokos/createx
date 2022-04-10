@@ -6,9 +6,17 @@
    }
 
    &__btns{
+      @media (max-width: 576px){
+         display: flex;
+         flex-direction: column;
+      }
       .btn{
          &:not(:last-child){
            margin: 0px 20px 0px 0px;
+
+           @media (max-width: 576px){
+              margin: 0px 0px 15px 0px;
+           }
          }
       }
    }
@@ -24,6 +32,23 @@
       left: calc((100% - 1260px) / 2) !important;
       bottom: 120px;
 
+      @media (max-width: 1440px){
+         left: 3% !important;
+      }
+
+      @media (max-width: $md1+px){
+         left: 15px !important;
+      }
+
+      @media (max-width: $md3+px){
+         width: calc(100% - 30px) !important;
+         bottom: 60px !important;
+      }
+
+      @media (max-width: 576px){
+         display: none;
+      }
+
       .swiper-pagination-bullet{
          display: flex;
          flex-direction: column;
@@ -34,6 +59,10 @@
          border-radius: 0;
          opacity: 1;
          transition: all 1.5s ease-in-out;
+
+         @media (max-width: $md3+px){
+            width: 25%;
+         }
 
          &:not(:last-child){
            margin: 0px 4px 0px 0px;
@@ -94,6 +123,10 @@
       transform: translateY(-50%);
       z-index: 2;
       background: #fff;
+
+      @media (max-width: 1440px){
+         display: none;
+      }
    }
 
    &__prev{
@@ -103,6 +136,10 @@
       transform: translateY(-50%);
       z-index: 2;
       background: #fff;
+
+      @media (max-width: 1440px){
+         display: none;
+      }
    }
 }
 
@@ -117,4 +154,12 @@
    padding: 220px 0px 354px 0px;
    background: $gray;
    background: url('../img/heroBg.jpg') center / cover no-repeat;
+
+   @media (max-width: $md3+px){
+      padding: 200px 0;
+   }
+
+   @media (max-width: 576px){
+      padding: 100px 0;
+   }
 }

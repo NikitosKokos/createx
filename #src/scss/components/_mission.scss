@@ -1,10 +1,23 @@
 .mission{
    $missionGap: 94px;
+   @media (max-width: $md1+px){
+      $missionGap: 50px;
+   }
+   @media (max-width: 1024px){
+      $missionGap: 30px;
+   }
+   @media (max-width: $md3+px){
+      $missionGap: 10px;
+   }
    &__list{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       margin: 0px 0px 27px 0px;
       gap: $missionGap * 2;
+
+      @media (max-width: 576px){
+         display: block;
+      }
    }
 
    &__item{
@@ -14,6 +27,12 @@
       background-repeat: no-repeat !important;
       background-size: 48px 48px !important;
       position: relative;
+
+      @media (max-width: 576px){
+         &:not(:last-child){
+           margin: 0px 0px 30px 0px;
+         }
+      }
 
       &--quality{
          background: url('../img/icons/quality.svg');
@@ -37,6 +56,9 @@
            height: 100%;
            background: url('../img/icons/divider.svg') center no-repeat;
            background-size: cover !important;
+           @media (max-width: 576px){
+              display: none;
+           }
         }
       }
    }
@@ -64,17 +86,50 @@
    box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08), 0px 30px 24px -10px rgba(154, 156, 165, 0.05), 0px 12px 10px -6px rgba(154, 156, 165, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
    border-radius: 4px;
 
+   @media (max-width: 576px){
+      top: initial;
+      padding: 10px 0px;
+      box-shadow: none;
+   }
+
    &__content{
       display: flex;
       align-items: flex-end;
+
+      @media (max-width: 1024px){
+         flex-wrap: wrap;
+         justify-content: space-between;
+
+         & > *{
+            margin-right: 0 !important;
+            margin-bottom: 20px;
+            width: 49%;
+            flex-grow: initial;
+
+            .form-field__input{
+               width: 100%;
+            }
+         }
+      }
+      @media (max-width: 576px){
+         display: block;
+      }
    }
 
    &__field{
       margin: 0px 24px 0px 0px;
+
+      @media (max-width: 576px){
+         width: 100%;
+      }
    }
 
    &__btn{
       padding: 11px 32px;
+
+      @media (max-width: 576px){
+         width: 100%;
+      }
    }
 
    &__title{
@@ -84,5 +139,9 @@
       font-size: 28px;
       line-height: 150%;
       color: $ebony;
+
+      @media (max-width: 576px){
+         font-size: 26px;
+      }
    }
 }

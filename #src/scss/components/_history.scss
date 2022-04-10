@@ -2,6 +2,10 @@
    background: #f4f5f7;
    padding: 100px 0px;
 
+   @media (max-width: $md4+px){
+      padding: 60px 0px;
+   }
+
    &__top{
       display: flex;
       justify-content: space-between;
@@ -10,6 +14,10 @@
 
    &__content{
       align-items: start;
+
+      @media (max-width: $md3+px){
+         grid-template-columns: repeat(4,1fr);
+      }
    }
 
    &__item{
@@ -36,6 +44,10 @@
 .history-slider{
    grid-column: 8 span;
    overflow: hidden;
+
+   @media (max-width: $md3+px){
+      grid-column: 4 span;
+   }
 }
 
 .history-nav{
@@ -88,6 +100,14 @@
          height: 8px;
          background: currentColor;
          border-radius: 50%;
+      }
+
+      @media (max-width: 1024px){
+         font-size: 22px;
+      }
+
+      @media (max-width: $md3+px){
+         font-size: 28px;
       }
 
       @media(any-hover: hover){

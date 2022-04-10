@@ -8,6 +8,12 @@
       height: 100%;
       object-fit: cover;
       border-radius: 4px;
+
+      img{
+         width: 100%;
+         height: auto;
+         object-fit: cover;
+      }
    }
 
    &__btn{
@@ -16,6 +22,10 @@
       transform: translateY(-50%);
       z-index: 2;
       background: rgba(#fff, .5);
+
+      @media (max-width: 1024px){
+         display: none;
+      }
 
       @media(any-hover: hover){
          &:hover{
@@ -49,6 +59,10 @@
       opacity: .6;
       cursor: pointer;
       transition: all .3s ease-in-out;
+
+      @media (max-width: 1024px){
+         height: auto;
+      }
 
       &.swiper-slide-thumb-active{
          opacity: 1;

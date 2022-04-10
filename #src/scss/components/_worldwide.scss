@@ -5,4 +5,12 @@
    &__title{
       margin: 0px 0px 60px 0px;
    }
+
+   svg{
+      width: 100%;
+   }
+
+   @media (max-width: 1024px){
+      display: none;
+   }
 }

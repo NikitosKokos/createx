@@ -1,7 +1,14 @@
 .positions-content{
    padding: 121px 0px 100px 0px;
+   @media (max-width: 576px){
+      padding: 60px 0;
+   }
    &__left{
       grid-column: 7 span;
+
+      @media (max-width: 1024px){
+         grid-column: 6 span;
+      }
    }
 
    &__right{
@@ -9,6 +16,10 @@
       justify-content: flex-end;
       align-items: flex-start;
       grid-column: 5 span;
+
+      @media (max-width: 1024px){
+         grid-column: 6 span;
+      }
    }
 }
 
@@ -29,6 +40,10 @@
    border-radius: 4px;
    padding: 32px 40px;
    transition: all .4s ease-in-out;
+
+   @media (max-width: $md3+px){
+      padding: 20px;
+   }
 
    @media(any-hover: hover){
       &:hover{
@@ -66,6 +81,10 @@
       background: url('../img/icons/time.svg') left center / 16px 16px no-repeat;
    }
 
+   &__left{
+      margin: 0px 0px 20px 0px;
+   }
+
    &__title{
       font-weight: 700;
       font-size: 20px;
@@ -76,10 +95,19 @@
    &__link{
       padding: 11px 30px;
    }
+
+   @media (max-width: 1024px){
+      flex-direction: column;
+      align-items: flex-start;
+   }
 }
 
 .positions-looking {
    width: 390px;
+
+   @media (max-width: 1024px){
+      width: 100%;
+   }
 
 	&__title {
       font-weight: 700;
@@ -97,6 +125,14 @@
 	}
 
 	&__btns {
+      @media (max-width: 1024px){
+         display: flex;
+         flex-direction: column;
+
+         .positions-looking__btn--subs{
+            margin: 0px 0px 15px 0px;
+         }
+      }
 	}
 
 	&__btn {

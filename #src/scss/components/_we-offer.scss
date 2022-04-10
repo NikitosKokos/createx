@@ -1,5 +1,14 @@
 .we-offer {
    padding: 120px 0 180px 0;
+   @media (max-width: 576px){
+      padding: 60px 0;
+   }
+
+   &__container{
+      @media (max-width: 1024px){
+         display: block;
+      }
+   }
 
 	&__image {
       grid-column: 7 span;
@@ -16,6 +25,13 @@
 	&__content {
       grid-column: 5 span;
       padding: 0px 0px 0px 75px;
+
+      @media (max-width: $md1+px){
+         padding: 0px 0px 0px 0px;
+      }
+      @media (max-width: 1024px){
+         padding: 40px 0px 0px 0px;
+      }
 	}
 
 	&__title {
@@ -68,6 +84,10 @@
       display: flex;
       align-items: flex-start;
       cursor: pointer;
+
+      @media (max-width: 576px){
+         font-size: 20px;
+      }
 
       &._active{
          .we-offer__icon{

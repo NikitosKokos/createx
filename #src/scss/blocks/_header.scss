@@ -1,5 +1,6 @@
 .header{
    padding: 23px 0 21px 0;
+   position: relative;
    &__content{
       display: flex;
       align-items: center;
@@ -8,6 +9,46 @@
 
    &__nav{
       margin-left: -112px;
+      @media (max-width: $md1+px){
+         margin-left: 0;
+      }
+      @media (max-width: 1024px){
+         position: fixed;
+         top: 0;
+         left: 0;
+         display: block;
+         width: 80vw;
+         height: 100vh;
+         padding: 50px;
+         z-index: 100;
+         background: #fff;
+         overflow-y: auto;
+         transform: translateX(-100%);
+         transition: all .3s ease-in-out;
+
+         &._active{
+            transform: translateX(0%);
+         }
+      }
+
+      @media (max-width: 576px){
+         padding: 30px;
+      }
+   }
+
+   .logo{
+      img{
+         width: 100%;
+         height: auto;
+         object-fit: contain;
+      }
+      @media (max-width: $md1+px){
+         max-width: 100px;
+      }
+
+      @media (max-width: 1024px){
+         max-width: none;
+      }
    }
 
    &--main{
