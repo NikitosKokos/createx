@@ -13,6 +13,10 @@
    &__left{
       grid-column: 6 span;
       padding: 24px 0px 0px 0px;
+
+      @media (max-width: 1024px){
+         margin: 0px 0px 24px 0px;
+      }
    }
 
    &__right{

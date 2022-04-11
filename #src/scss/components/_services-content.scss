@@ -82,6 +82,10 @@
       grid-column: 6 span;
       padding: 76px 0;
 
+      @media (max-width: $md3+px){
+         padding: 45px 0;
+      }
+
       @media (max-width: 576px){
          grid-column: 4 span;
          padding: 0;

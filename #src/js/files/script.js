@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
    });
 
    const toTop = document.querySelector('.to-top');
-   const heroHeight = !!document.querySelector('.hero') ? document.querySelector('.hero').offsetHeight : 500;
+   const heroHeight = !!document.querySelector('.hero') ? document.querySelector('.hero').offsetHeight : (!!document.querySelector('.page-hero') ? document.querySelector('.page-hero').offsetHeight : 500);
 
    const isVisibleToTop = (y = 0) => {
       if(y >= heroHeight){
